@@ -141,7 +141,7 @@ type ProductFilterType = {
 
 export const ProductsPage = () => {
   const [filter, setFilter] = useState<ProductFilterType>({
-    category: [],
+    category: mockCategories,
     text: '',
   })
 
@@ -188,7 +188,7 @@ export const ProductsPage = () => {
     }
   })
   return (
-    <main className="h-full w-full">
+    <div className="h-full w-full">
       <div className="mx-auto flex h-full w-3/4 flex-col p-8">
         <ProductFilter
           categoryOptions={mockCategories}
@@ -199,7 +199,7 @@ export const ProductsPage = () => {
         />
         <ProductList products={searchedProducts} />
       </div>
-    </main>
+    </div>
   )
 }
 
@@ -214,9 +214,9 @@ interface ProductFilterProps {
 const ProductFilter = ({
   categoryOptions = [],
   selectedOptions = [],
-  onChangeSearchText,
-  onSelectCategory,
-  onSelectAllCategory,
+  onChangeSearchText = () => {},
+  onSelectCategory = () => {},
+  onSelectAllCategory = () => {},
 }: ProductFilterProps) => {
   return (
     <div className="flex w-full flex-row items-center justify-between border-b-2 border-slate-800 pb-2">
