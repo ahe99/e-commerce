@@ -6,13 +6,24 @@
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-    font-size: 24px;
-  }
+  font-size: 16px;
+}
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+div {
+  -ms-overflow-style: none; /* Edge, Internet Explorer */
+  scrollbar-width: none; /* Firefox */
+  overflow-y: scroll;
+}
+
+/* hides scrollbars while allowing to scroll */
+div::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 html,
@@ -21,8 +32,8 @@ body {
   overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-}
+} */
