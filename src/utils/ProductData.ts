@@ -4,7 +4,7 @@ export type Product = {
   description: string
   price: number
   stock_quantity: number
-  category_name: CategoryType
+  category_name: string
   createdAt: string
   updatedAt: string
   // createdAt: Date;
