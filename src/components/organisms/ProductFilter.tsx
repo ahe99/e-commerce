@@ -19,7 +19,7 @@ export const ProductFilter = ({
 }: ProductFilterProps) => {
   return (
     <div className="flex w-full flex-row items-center justify-between border-b-2 border-slate-800 pb-2">
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row flex-wrap gap-2">
         <Checkbox
           label="All"
           isChecked={categoryOptions.length === selectedOptions.length}
