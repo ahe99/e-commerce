@@ -1,9 +1,7 @@
 'use client'
-import React, { PropsWithChildren, useMemo, useState } from 'react'
-import { MdSearch } from 'react-icons/md'
+import React, { useState } from 'react'
 
-import { Checkbox } from '@/components/atoms'
-import { Pagination, ProductList } from '@/components/organisms'
+import { Pagination, ProductList, ProductFilter } from '@/components/organisms'
 
 import { Product } from '@/utils/ProductData'
 
@@ -129,6 +127,160 @@ const mockProducts: Product[] = [
     createdAt: '2023-03-27T08:25:25.154Z',
     updatedAt: '2023-03-27T08:25:25.154Z',
   },
+  {
+    id: 'p012',
+    name: 'Shrimp Pad Thai',
+    description:
+      'A classic Thai noodle dish made with stir-fried rice noodles, shrimp, eggs, and a flavorful sauce.',
+    price: 120,
+    stock_quantity: 25,
+    category_name: 'Main Dish',
+    createdAt: '2023-04-08T02:43:41.978Z',
+    updatedAt: '2023-04-08T02:43:41.978Z',
+  },
+  {
+    id: 'p013',
+    name: "General Tso's Chicken",
+    description:
+      'A popular Chinese-American dish made with crispy chicken pieces, a sweet and spicy sauce, and vegetables.',
+    price: 130,
+    stock_quantity: 20,
+    category_name: 'Main Dish',
+    createdAt: '2023-04-08T02:43:41.978Z',
+    updatedAt: '2023-04-08T02:43:41.978Z',
+  },
+  {
+    id: 'p014',
+    name: 'Crispy Tofu',
+    description:
+      'Fried tofu cubes that are crispy on the outside and soft on the inside, served with a dipping sauce.',
+    price: 90,
+    stock_quantity: 30,
+    category_name: 'Appetizer',
+    createdAt: '2023-04-08T02:43:41.978Z',
+    updatedAt: '2023-04-08T02:43:41.978Z',
+  },
+  {
+    id: 'p015',
+    name: 'Bibimbap',
+    description:
+      'A Korean rice bowl dish with vegetables, meat, and a spicy sauce, served with a fried egg on top.',
+    price: 150,
+    stock_quantity: 15,
+    category_name: 'Main Dish',
+    createdAt: '2023-04-08T02:43:41.978Z',
+    updatedAt: '2023-04-08T02:43:41.978Z',
+  },
+  {
+    id: 'p016',
+    name: 'Gyoza',
+    description:
+      'Japanese dumplings filled with ground pork, cabbage, and other seasonings, served with a soy-based dipping sauce.',
+    price: 100,
+    stock_quantity: 25,
+    category_name: 'Appetizer',
+    createdAt: '2023-04-08T02:43:41.978Z',
+    updatedAt: '2023-04-08T02:43:41.978Z',
+  },
+  {
+    id: 'p017',
+    name: 'Tonkatsu Ramen',
+    description:
+      'A rich and flavorful Japanese noodle soup with pork cutlets, eggs, and vegetables in a savory broth.',
+    price: 130,
+    stock_quantity: 20,
+    category_name: 'Soup',
+    createdAt: '2023-04-08T02:43:41.978Z',
+    updatedAt: '2023-04-08T02:43:41.978Z',
+  },
+  {
+    id: 'p018',
+    name: 'Miso Soup',
+    description:
+      'A simple Japanese soup made with miso paste, tofu, seaweed, and green onions, served as a starter or side dish.',
+    price: 80,
+    stock_quantity: 30,
+    category_name: 'Soup',
+    createdAt: '2023-04-08T02:43:41.978Z',
+    updatedAt: '2023-04-08T02:43:41.978Z',
+  },
+  {
+    id: 'p019',
+    name: 'Teriyaki Salmon',
+    description:
+      'Grilled salmon fillet glazed with sweet and savory teriyaki sauce, served with steamed vegetables and rice.',
+    price: 180,
+    stock_quantity: 15,
+    category_name: 'Main Dish',
+    createdAt: '2023-03-27T08:25:25.154Z',
+    updatedAt: '2023-03-27T08:25:25.154Z',
+  },
+  {
+    id: 'p020',
+    name: 'Bibimbap',
+    description:
+      'A Korean dish of mixed rice, vegetables, meat, and a spicy sauce, served in a hot stone bowl.',
+    price: 150,
+    stock_quantity: 20,
+    category_name: 'Main Dish',
+    createdAt: '2023-03-27T08:25:25.154Z',
+    updatedAt: '2023-03-27T08:25:25.154Z',
+  },
+  {
+    id: 'p021',
+    name: 'Banh Mi Sandwich',
+    description:
+      'A Vietnamese sandwich made with a crusty baguette, pickled vegetables, cilantro, and a choice of protein.',
+    price: 100,
+    stock_quantity: 25,
+    category_name: 'Sandwich',
+    createdAt: '2023-03-27T08:25:25.154Z',
+    updatedAt: '2023-03-27T08:25:25.154Z',
+  },
+  {
+    id: 'p022',
+    name: 'Pad See Ew',
+    description:
+      'A Thai dish of stir-fried wide rice noodles, meat, and vegetables in a savory sauce.',
+    price: 130,
+    stock_quantity: 25,
+    category_name: 'Main Dish',
+    createdAt: '2023-03-27T08:25:25.154Z',
+    updatedAt: '2023-03-27T08:25:25.154Z',
+  },
+  {
+    id: 'p023',
+    name: 'Shrimp Tempura',
+    description:
+      'Light and crispy fried shrimp in a tempura batter, served with a dipping sauce and rice.',
+    price: 120,
+    stock_quantity: 30,
+    category_name: 'Appetizer',
+    createdAt: '2023-03-27T08:25:25.154Z',
+    updatedAt: '2023-03-27T08:25:25.154Z',
+  },
+  {
+    id: 'p024',
+    name: 'Pho',
+    description:
+      'A Vietnamese noodle soup with a flavorful broth, rice noodles, meat, and herbs like basil and cilantro.',
+    price: 110,
+    stock_quantity: 30,
+    category_name: 'Soup',
+    createdAt: '2023-03-27T08:25:25.154Z',
+    updatedAt: '2023-03-27T08:25:25.154Z',
+  },
+  {
+    id: 'p025',
+    name: 'General Tso Chicken',
+    description:
+      'Deep-fried chicken pieces coated in a sweet and spicy sauce, served with rice and steamed vegetables.',
+    price: 140,
+    stock_quantity: 20,
+    category_name: 'Main Dish',
+    createdAt: '2023-03-27T08:25:25.154Z',
+    updatedAt: '2023-03-27T08:25:25.154Z',
+  },
 ]
 
 const mockCategories = [
@@ -139,7 +291,7 @@ type ProductFilterType = {
   text: string
 }
 
-const PRODUCTS_PER_PAGE = 3
+const PRODUCTS_PER_PAGE = 12
 
 export const ProductsPage = () => {
   const [filter, setFilter] = useState<ProductFilterType>({
@@ -223,50 +375,6 @@ export const ProductsPage = () => {
           total={Math.ceil(searchedProducts.length / PRODUCTS_PER_PAGE)}
           currentPage={currentPage}
           onChange={handleSelectPage}
-        />
-      </div>
-    </div>
-  )
-}
-
-interface ProductFilterProps {
-  categoryOptions?: string[]
-  selectedOptions?: string[]
-  onChangeSearchText?: (newSearchText: string) => void
-  onSelectCategory?: (selectedCategory: string) => void
-  onSelectAllCategory?: () => void
-}
-
-const ProductFilter = ({
-  categoryOptions = [],
-  selectedOptions = [],
-  onChangeSearchText = () => {},
-  onSelectCategory = () => {},
-  onSelectAllCategory = () => {},
-}: ProductFilterProps) => {
-  return (
-    <div className="flex w-full flex-row items-center justify-between border-b-2 border-slate-800 pb-2">
-      <div className="flex flex-row gap-2">
-        <Checkbox
-          label="All"
-          isChecked={categoryOptions.length === selectedOptions.length}
-          onClick={onSelectAllCategory}
-        />
-        {categoryOptions.map((category) => (
-          <Checkbox
-            key={category}
-            label={category}
-            isChecked={selectedOptions.includes(category)}
-            onClick={() => onSelectCategory(category)}
-          />
-        ))}
-      </div>
-      <div className="flex flex-row items-center gap-1">
-        <MdSearch />
-        <input
-          className="rounded-sm p-1"
-          type="text"
-          onChange={(e) => onChangeSearchText(e.target.value)}
         />
       </div>
     </div>
