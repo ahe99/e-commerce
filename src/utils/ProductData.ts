@@ -1,3 +1,5 @@
+// import {} from '@wayne0127/mall-api-types'
+
 export type Product = {
   id: string
   name: string

@@ -11,7 +11,7 @@ export const ProductList = ({ products }: ProductListProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
-      whileInView={{ opacity: 1 }}
+      whileInView={{ opacity: 1, y: 0 }}
       exit={{
         opacity: 1,
         y: 0,

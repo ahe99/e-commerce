@@ -23,6 +23,7 @@
     "typescript": "^5.0.2"
   },
   "devDependencies": {
+    "@wayne0127/mall-api-types": "^0.0.1",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
     "prettier-plugin-tailwindcss": "^0.2.6",

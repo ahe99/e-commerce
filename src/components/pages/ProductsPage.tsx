@@ -1,9 +1,9 @@
 'use client'
-import React, { useState } from 'react'
+import React, { PropsWithChildren, useMemo, useState } from 'react'
 import { MdSearch } from 'react-icons/md'
 
 import { Checkbox } from '@/components/atoms'
-import { ProductList } from '@/components/organisms'
+import { Pagination, ProductList } from '@/components/organisms'
 
 import { Product } from '@/utils/ProductData'
 
@@ -139,13 +139,17 @@ type ProductFilterType = {
   text: string
 }
 
+const PRODUCTS_PER_PAGE = 3
+
 export const ProductsPage = () => {
   const [filter, setFilter] = useState<ProductFilterType>({
     category: mockCategories,
     text: '',
   })
+  const [currentPage, setCurrentPage] = useState(1)
 
   const handleChangeCategory = (selectedCategory: string) => {
+    resetPagination()
     setFilter((prev) => {
       const { text, category } = prev
       let newCategory = []
@@ -163,6 +167,7 @@ export const ProductsPage = () => {
   }
 
   const handleSelectAllCategory = () => {
+    resetPagination()
     setFilter((prev) => {
       const { text, category } = prev
       if (category.length === mockCategories.length) {
@@ -174,7 +179,16 @@ export const ProductsPage = () => {
   }
 
   const handleChangeSearchText = (newSearchText: string) => {
+    resetPagination()
     setFilter((prev) => ({ ...prev, text: newSearchText }))
+  }
+
+  const handleSelectPage = (newPage: number) => {
+    setCurrentPage(newPage)
+  }
+
+  const resetPagination = () => {
+    setCurrentPage(1)
   }
 
   const filteredProducts = mockProducts.filter((product) =>
@@ -187,17 +201,29 @@ export const ProductsPage = () => {
       return true
     }
   })
+  const paginatedProducts = searchedProducts.filter(
+    (_, index) =>
+      index >= PRODUCTS_PER_PAGE * (currentPage - 1) &&
+      index < PRODUCTS_PER_PAGE * currentPage,
+  )
   return (
     <div className="h-full w-full">
-      <div className="mx-auto flex h-full w-3/4 flex-col p-8">
-        <ProductFilter
-          categoryOptions={mockCategories}
-          selectedOptions={filter.category}
-          onChangeSearchText={handleChangeSearchText}
-          onSelectCategory={handleChangeCategory}
-          onSelectAllCategory={handleSelectAllCategory}
+      <div className="mx-auto flex h-full w-3/4 flex-col items-center gap-8 p-8">
+        <div className="w-full">
+          <ProductFilter
+            categoryOptions={mockCategories}
+            selectedOptions={filter.category}
+            onChangeSearchText={handleChangeSearchText}
+            onSelectCategory={handleChangeCategory}
+            onSelectAllCategory={handleSelectAllCategory}
+          />
+          <ProductList products={paginatedProducts} />
+        </div>
+        <Pagination
+          total={Math.ceil(searchedProducts.length / PRODUCTS_PER_PAGE)}
+          currentPage={currentPage}
+          onChange={handleSelectPage}
         />
-        <ProductList products={searchedProducts} />
       </div>
     </div>
   )
