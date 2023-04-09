@@ -1,6 +1,6 @@
 'use client'
 import { CacheProvider } from '@chakra-ui/next-js'
-import { ChakraProvider } from '@chakra-ui/react'
+import { Box, ChakraProvider, Stack } from '@chakra-ui/react'
 import Link from 'next/link'
 
 import './globals.css'
@@ -17,15 +17,14 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className="h-screen w-screen bg-slate-200">
-        <Header />
+      <body className="bg-slate-200">
         <CacheProvider>
           <ChakraProvider>
-            <main>{children}</main>
+            <Header />
+            {children}
+            <Footer />
           </ChakraProvider>
         </CacheProvider>
-
-        <Footer />
       </body>
     </html>
   )
@@ -46,15 +45,25 @@ const ROUTES = [
 
 const Header = () => {
   return (
-    <header className="flex h-20 items-center justify-start gap-2 bg-slate-400 pl-10">
-      <h1 className="border-r-2 border-slate-200 pr-2 text-2xl text-slate-800">
-        e-commerce
-      </h1>
-      <ul className="flex flex-row items-center gap-2">
-        {ROUTES.map(({ id, name, route }) => (
-          <NavItem key={id} name={name} route={route} />
-        ))}
-      </ul>
+    <header className="flex h-20 items-center justify-between bg-slate-400 px-10">
+      <Box className="flex flex-row items-center gap-2">
+        <h1 className="border-r-2 border-slate-200 pr-2 text-2xl text-slate-800">
+          e-commerce
+        </h1>
+        <ul className="flex flex-row items-center gap-2">
+          {ROUTES.map(({ id, name, route }) => (
+            <NavItem key={id} name={name} route={route} />
+          ))}
+        </ul>
+      </Box>
+      <Box
+        className="text-amber-800
+        hover:cursor-pointer
+        hover:text-amber-400
+        hover:underline"
+      >
+        <Link href="login">logout</Link>
+      </Box>
     </header>
   )
 }

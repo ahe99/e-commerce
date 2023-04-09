@@ -54,7 +54,7 @@ export const ProductFilter = ({
             />
           ))}
         </Box>
-        <Box className="flex flex-row items-center justify-between">
+        <Box className="flex flex-shrink-0 flex-row items-center justify-between">
           <InputGroup variant="filled" className="rounded-md border-slate-600">
             <InputLeftElement pointerEvents="none">
               <MdSearch />

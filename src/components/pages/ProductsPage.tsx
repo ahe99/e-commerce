@@ -103,25 +103,23 @@ export const ProductsPage = () => {
       index < PRODUCTS_PER_PAGE * currentPage,
   )
   return (
-    <div className="h-full w-full">
-      <div className="mx-auto flex h-full w-3/4 flex-col items-center gap-8 p-8">
-        <div className="flex w-full flex-col gap-2">
-          <ProductFilter
-            categoryOptions={mockCategories}
-            selectedOptions={filter.category}
-            onChangeSearchText={handleChangeSearchText}
-            onSelectCategory={handleChangeCategory}
-            onSelectAllCategory={handleSelectAllCategory}
-            onChangeSortBase={handleChangeSortBase}
-          />
-          <ProductList products={paginatedProducts} />
-        </div>
-        <Pagination
-          total={Math.ceil(searchedProducts.length / PRODUCTS_PER_PAGE)}
-          currentPage={currentPage}
-          onChange={handleSelectPage}
+    <main className="mx-auto flex w-3/4 flex-col items-center gap-8 p-8">
+      <div className="flex w-full flex-col gap-2">
+        <ProductFilter
+          categoryOptions={mockCategories}
+          selectedOptions={filter.category}
+          onChangeSearchText={handleChangeSearchText}
+          onSelectCategory={handleChangeCategory}
+          onSelectAllCategory={handleSelectAllCategory}
+          onChangeSortBase={handleChangeSortBase}
         />
+        <ProductList products={paginatedProducts} />
       </div>
-    </div>
+      <Pagination
+        total={Math.ceil(searchedProducts.length / PRODUCTS_PER_PAGE)}
+        currentPage={currentPage}
+        onChange={handleSelectPage}
+      />
+    </main>
   )
 }

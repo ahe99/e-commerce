@@ -20,4 +20,6 @@ export const ProductCard = ({ name, price }: ProductCardProps) => {
   )
 }
 export default ProductCard
-const MockImage = () => <div className="w-full flex-1 bg-slate-600" />
+const MockImage = () => (
+  <div className="w-full flex-1 rounded-md bg-slate-600" />
+)
