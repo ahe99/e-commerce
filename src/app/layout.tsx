@@ -1,3 +1,6 @@
+'use client'
+import { CacheProvider } from '@chakra-ui/next-js'
+import { ChakraProvider } from '@chakra-ui/react'
 import Link from 'next/link'
 
 import './globals.css'
@@ -16,7 +19,12 @@ export default function RootLayout({
       <head />
       <body className="h-screen w-screen bg-slate-200">
         <Header />
-        <main>{children}</main>
+        <CacheProvider>
+          <ChakraProvider>
+            <main>{children}</main>
+          </ChakraProvider>
+        </CacheProvider>
+
         <Footer />
       </body>
     </html>

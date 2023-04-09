@@ -1,13 +1,16 @@
 'use client'
 import React, { useState } from 'react'
+import dayjs from 'dayjs'
 
-import { Pagination, ProductList, ProductFilter } from '@/components/organisms'
+import {
+  Pagination,
+  ProductList,
+  ProductFilter,
+  SortBaseType,
+} from '@/components/organisms'
 
-import { mockProducts } from '@/utils/mockData'
+import { mockProducts, mockCategories } from '@/utils/mockData'
 
-const mockCategories = [
-  ...new Set(mockProducts.map(({ category_name }) => category_name)),
-]
 type ProductFilterType = {
   category: string[]
   text: string
@@ -21,6 +24,12 @@ export const ProductsPage = () => {
     text: '',
   })
   const [currentPage, setCurrentPage] = useState(1)
+  const [sortBase, setSortBase] = useState<SortBaseType>()
+
+  const handleChangeSortBase = (newSortBase: SortBaseType) => {
+    resetPagination()
+    setSortBase(newSortBase)
+  }
 
   const handleChangeCategory = (selectedCategory: string) => {
     resetPagination()
@@ -75,7 +84,20 @@ export const ProductsPage = () => {
       return true
     }
   })
-  const paginatedProducts = searchedProducts.filter(
+  const sortedProducts = searchedProducts.sort((productA, productB) => {
+    if (sortBase === 'ASCEND_CREATE_TIME') {
+      return dayjs(productA.createdAt).diff(productB.createdAt)
+    } else if (sortBase === 'DESCEND_CREATE_TIME') {
+      return -dayjs(productA.createdAt).diff(productB.createdAt)
+    } else if (sortBase === 'ASCEND_PRICE') {
+      return productA.price - productB.price
+    } else if (sortBase === 'DESCEND_PRICE') {
+      return -(productA.price - productB.price)
+    } else {
+      return 0
+    }
+  })
+  const paginatedProducts = sortedProducts.filter(
     (_, index) =>
       index >= PRODUCTS_PER_PAGE * (currentPage - 1) &&
       index < PRODUCTS_PER_PAGE * currentPage,
@@ -83,13 +105,14 @@ export const ProductsPage = () => {
   return (
     <div className="h-full w-full">
       <div className="mx-auto flex h-full w-3/4 flex-col items-center gap-8 p-8">
-        <div className="w-full">
+        <div className="flex w-full flex-col gap-2">
           <ProductFilter
             categoryOptions={mockCategories}
             selectedOptions={filter.category}
             onChangeSearchText={handleChangeSearchText}
             onSelectCategory={handleChangeCategory}
             onSelectAllCategory={handleSelectAllCategory}
+            onChangeSortBase={handleChangeSortBase}
           />
           <ProductList products={paginatedProducts} />
         </div>

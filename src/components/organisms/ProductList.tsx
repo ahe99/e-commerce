@@ -17,7 +17,7 @@ export const ProductList = ({ products }: ProductListProps) => {
         y: 0,
       }}
       transition={{ ease: 'easeInOut' }}
-      className="grid grid-flow-row grid-cols-2 gap-2 p-2 sm:grid-cols-3"
+      className="grid grid-flow-row grid-cols-2 gap-2 sm:grid-cols-3"
     >
       {products.map((product) => (
         <ProductCard

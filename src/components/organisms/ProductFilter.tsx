@@ -1,6 +1,23 @@
 import { MdSearch } from 'react-icons/md'
+import {
+  Box,
+  Input,
+  Divider,
+  Select,
+  InputGroup,
+  InputLeftElement,
+} from '@chakra-ui/react'
 
 import { Checkbox } from '@/components/atoms'
+
+export const SORT_BASE_OPTIONS = [
+  'ASCEND_CREATE_TIME',
+  'DESCEND_CREATE_TIME',
+  'ASCEND_PRICE',
+  'DESCEND_PRICE',
+] as const
+
+export type SortBaseType = (typeof SORT_BASE_OPTIONS)[number] | null
 
 interface ProductFilterProps {
   categoryOptions?: string[]
@@ -8,6 +25,7 @@ interface ProductFilterProps {
   onChangeSearchText?: (newSearchText: string) => void
   onSelectCategory?: (selectedCategory: string) => void
   onSelectAllCategory?: () => void
+  onChangeSortBase?: (newSortBase: SortBaseType) => void
 }
 
 export const ProductFilter = ({
@@ -16,32 +34,53 @@ export const ProductFilter = ({
   onChangeSearchText = () => {},
   onSelectCategory = () => {},
   onSelectAllCategory = () => {},
+  onChangeSortBase = () => {},
 }: ProductFilterProps) => {
   return (
-    <div className="flex w-full flex-row items-center justify-between border-b-2 border-slate-800 pb-2">
-      <div className="flex flex-row flex-wrap gap-2">
-        <Checkbox
-          label="All"
-          isChecked={categoryOptions.length === selectedOptions.length}
-          onClick={onSelectAllCategory}
-        />
-        {categoryOptions.map((category) => (
+    <Box className="flex w-full flex-col">
+      <Box className="mb-2 flex flex-row items-end justify-between border-b-2 border-slate-800 pb-2">
+        <Box className="flex flex-row flex-wrap gap-2 ">
           <Checkbox
-            key={category}
-            label={category}
-            isChecked={selectedOptions.includes(category)}
-            onClick={() => onSelectCategory(category)}
+            label="All"
+            isChecked={categoryOptions.length === selectedOptions.length}
+            onClick={onSelectAllCategory}
           />
-        ))}
-      </div>
-      <div className="flex flex-row items-center gap-1">
-        <MdSearch />
-        <input
-          className="rounded-sm p-1"
-          type="text"
-          onChange={(e) => onChangeSearchText(e.target.value)}
-        />
-      </div>
-    </div>
+          {categoryOptions.map((category) => (
+            <Checkbox
+              key={category}
+              label={category}
+              isChecked={selectedOptions.includes(category)}
+              onClick={() => onSelectCategory(category)}
+            />
+          ))}
+        </Box>
+        <Box className="flex flex-row items-center justify-between">
+          <InputGroup variant="filled" className="rounded-md border-slate-600">
+            <InputLeftElement pointerEvents="none">
+              <MdSearch />
+            </InputLeftElement>
+            <Input
+              type="text"
+              onChange={(e) => onChangeSearchText(e.target.value)}
+            />
+          </InputGroup>
+        </Box>
+      </Box>
+      <Box className="w-max self-end">
+        <Select
+          variant="outline"
+          size="md"
+          className="rounded-md border-2 border-slate-600"
+          onChange={(e) => onChangeSortBase(e.target.value as SortBaseType)}
+          placeholder="sort by"
+        >
+          {SORT_BASE_OPTIONS.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </Select>
+      </Box>
+    </Box>
   )
 }

@@ -277,3 +277,7 @@ export const mockProducts: Product[] = [
     updatedAt: '2023-03-27T08:25:25.154Z',
   },
 ]
+
+export const mockCategories = [
+  ...new Set(mockProducts.map(({ category_name }) => category_name)),
+]
