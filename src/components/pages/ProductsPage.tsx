@@ -1,5 +1,4 @@
-'use client'
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import dayjs from 'dayjs'
 
 import {
@@ -9,7 +8,9 @@ import {
   SortBaseType,
 } from '@/components/organisms'
 
-import { mockProducts, mockCategories } from '@/utils/mockData'
+import { useProducts } from '@/hooks'
+import { mockCategories } from '@/utils/mockData'
+import { Product } from '@/utils/ProductData'
 
 type ProductFilterType = {
   category: string[]
@@ -18,13 +19,22 @@ type ProductFilterType = {
 
 const PRODUCTS_PER_PAGE = 12
 
-export const ProductsPage = () => {
+interface ProductsPageProps {
+  prefetchProducts?: Product[]
+}
+
+export const ProductsPage = ({ prefetchProducts = [] }: ProductsPageProps) => {
   const [filter, setFilter] = useState<ProductFilterType>({
     category: mockCategories,
     text: '',
   })
   const [currentPage, setCurrentPage] = useState(1)
   const [sortBase, setSortBase] = useState<SortBaseType>()
+  const products = useProducts(prefetchProducts)
+
+  const productsData = useMemo(() => {
+    return products.query.data ?? []
+  }, [products.query.data])
 
   const handleChangeSortBase = (newSortBase: SortBaseType) => {
     resetPagination()
@@ -74,7 +84,7 @@ export const ProductsPage = () => {
     setCurrentPage(1)
   }
 
-  const filteredProducts = mockProducts.filter((product) =>
+  const filteredProducts = productsData.filter((product) =>
     filter.category.includes(product.category_name),
   )
   const searchedProducts = filteredProducts.filter((product) => {
