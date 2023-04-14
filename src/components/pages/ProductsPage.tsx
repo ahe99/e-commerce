@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo } from 'react'
 
 import { useProducts } from '@/hooks'
 import { Product } from '@/utils/ProductData'
@@ -17,7 +17,7 @@ export const ProductsPage = ({ prefetchProducts = [] }: ProductsPageProps) => {
   }, [products.query.data])
 
   return (
-    <main className="mx-auto flex w-4/5 flex-col items-center gap-8 p-8">
+    <main className="mx-auto flex w-10/12 flex-col items-center gap-8 p-8">
       <ProductsBoard products={productsData} />
     </main>
   )
