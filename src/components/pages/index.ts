@@ -1,4 +1,5 @@
 'use client'
 export * from './LoginPage'
+export * from './NotFoundPage'
 export * from './ProductsPage'
 export * from './OverviewPage'
