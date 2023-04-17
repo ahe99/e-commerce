@@ -21,11 +21,13 @@ const PRODUCTS_PER_PAGE = 12
 interface ProductsBoardProps {
   products?: Product[]
   productsPerPage?: number
+  onClickItem?: (productId: Product['id']) => void
 }
 
 export const ProductsBoard = ({
   products = [],
   productsPerPage = PRODUCTS_PER_PAGE,
+  onClickItem = () => {},
 }: ProductsBoardProps) => {
   const [filter, setFilter] = useState<ProductFilterType>({
     category: mockCategories,
@@ -121,7 +123,7 @@ export const ProductsBoard = ({
           onSelectAllCategory={handleSelectAllCategory}
           onChangeSortBase={handleChangeSortBase}
         />
-        <ProductList products={paginatedProducts} />
+        <ProductList onClickItem={onClickItem} products={paginatedProducts} />
       </div>
       <Pagination
         total={Math.ceil(searchedProducts.length / PRODUCTS_PER_PAGE)}

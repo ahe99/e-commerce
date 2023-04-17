@@ -2,4 +2,5 @@
 export * from './LoginPage'
 export * from './NotFoundPage'
 export * from './ProductsPage'
+export * from './ProductPage'
 export * from './OverviewPage'

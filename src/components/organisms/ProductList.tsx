@@ -6,8 +6,12 @@ import { Product } from '@/utils/ProductData'
 
 interface ProductListProps {
   products: Product[]
+  onClickItem?: (productId: Product['id']) => void
 }
-export const ProductList = ({ products }: ProductListProps) => {
+export const ProductList = ({
+  products,
+  onClickItem = () => {},
+}: ProductListProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
@@ -25,6 +29,7 @@ export const ProductList = ({ products }: ProductListProps) => {
           name={product.name}
           description={product.description}
           price={product.price}
+          onClick={() => onClickItem(product.id)}
         />
       ))}
     </motion.div>
