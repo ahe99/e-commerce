@@ -210,17 +210,19 @@ export const mockProducts: Product[] = [
     createdAt: '2023-03-27T08:25:25.154Z',
     updatedAt: '2023-03-27T08:25:25.154Z',
   },
+
   {
     id: 'p020',
-    name: 'Bibimbap',
+    name: 'Salmon Poke Bowl',
     description:
-      'A Korean dish of mixed rice, vegetables, meat, and a spicy sauce, served in a hot stone bowl.',
-    price: 150,
-    stock_quantity: 20,
+      'Fresh salmon sashimi served over a bed of sushi rice, topped with avocado, edamame, and seaweed salad.',
+    price: 130,
+    stock_quantity: 50,
     category_name: 'Main Dish',
-    createdAt: '2023-03-27T08:25:25.154Z',
-    updatedAt: '2023-03-27T08:25:25.154Z',
+    createdAt: '2023-04-18T08:00:00.000Z',
+    updatedAt: '2023-04-18T08:00:00.000Z',
   },
+
   {
     id: 'p021',
     name: 'Banh Mi Sandwich',
@@ -267,14 +269,69 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'p025',
-    name: 'General Tso Chicken',
+    name: 'Veggie Burger',
     description:
-      'Deep-fried chicken pieces coated in a sweet and spicy sauce, served with rice and steamed vegetables.',
-    price: 140,
-    stock_quantity: 20,
+      'A meatless burger patty served on a sesame seed bun, topped with lettuce, tomato, and onion.',
+    price: 100,
+    stock_quantity: 25,
     category_name: 'Main Dish',
-    createdAt: '2023-03-27T08:25:25.154Z',
-    updatedAt: '2023-03-27T08:25:25.154Z',
+    createdAt: '2023-04-18T08:00:00.000Z',
+    updatedAt: '2023-04-18T08:00:00.000Z',
+  },
+  {
+    id: 'p026',
+    name: 'Cajun Shrimp Pasta',
+    description:
+      'Spicy sautéed shrimp served over a bed of linguine pasta in a creamy tomato sauce.',
+    price: 150,
+    stock_quantity: 30,
+    category_name: 'Main Dish',
+    createdAt: '2023-04-18T08:00:00.000Z',
+    updatedAt: '2023-04-18T08:00:00.000Z',
+  },
+  {
+    id: 'p027',
+    name: 'Greek Salad',
+    description:
+      'Mixed greens, cucumber, tomato, onion, and feta cheese, tossed in a tangy vinaigrette dressing.',
+    price: 80,
+    stock_quantity: 40,
+    category_name: 'Salads',
+    createdAt: '2023-04-18T08:00:00.000Z',
+    updatedAt: '2023-04-18T08:00:00.000Z',
+  },
+  {
+    id: 'p028',
+    name: 'Spicy Tuna Roll',
+    description:
+      'Sushi roll filled with spicy tuna and avocado, topped with spicy mayo and sriracha.',
+    price: 110,
+    stock_quantity: 20,
+    category_name: 'Sushi',
+    createdAt: '2023-04-18T08:00:00.000Z',
+    updatedAt: '2023-04-18T08:00:00.000Z',
+  },
+  {
+    id: 'p029',
+    name: 'Clam Chowder',
+    description:
+      'Creamy New England-style clam chowder, served with oyster crackers.',
+    price: 70,
+    stock_quantity: 35,
+    category_name: 'Soups',
+    createdAt: '2023-04-18T08:00:00.000Z',
+    updatedAt: '2023-04-18T08:00:00.000Z',
+  },
+  {
+    id: 'p030',
+    name: 'Cheese Pizza',
+    description:
+      'Classic cheese pizza with tomato sauce and mozzarella cheese.',
+    price: 120,
+    stock_quantity: 15,
+    category_name: 'Main Dish',
+    createdAt: '2023-04-18T08:00:00.000Z',
+    updatedAt: '2023-04-18T08:00:00.000Z',
   },
 ]
 

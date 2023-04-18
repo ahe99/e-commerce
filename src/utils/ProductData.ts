@@ -9,6 +9,4 @@ export type Product = {
   category_name: string
   createdAt: string
   updatedAt: string
-  // createdAt: Date;
-  // updatedAt: Date;
 }
