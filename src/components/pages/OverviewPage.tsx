@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import { useRouter } from 'next/navigation'
 
 import { Product } from '@/utils/ProductData'
 
@@ -12,11 +13,17 @@ interface OverviewPageProps {
 }
 
 export const OverviewPage = ({ prefetchProducts = [] }: OverviewPageProps) => {
+  const router = useRouter()
+
   const products = useProducts(prefetchProducts)
 
   const productsData = useMemo(() => {
     return products.query.data ?? []
   }, [products.query.data])
+
+  const handleClickProductCard = (productId: Product['id']) => {
+    router.push(`products/${productId}`)
+  }
 
   return (
     <main className="mx-auto flex  w-10/12 flex-col items-center gap-8 p-8">
@@ -34,7 +41,10 @@ export const OverviewPage = ({ prefetchProducts = [] }: OverviewPageProps) => {
           />
         ))}
       </Carousel>
-      <ProductsBoard products={productsData} />
+      <ProductsBoard
+        products={productsData}
+        onClickItem={handleClickProductCard}
+      />
     </main>
   )
 }

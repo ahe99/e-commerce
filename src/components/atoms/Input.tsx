@@ -6,6 +6,7 @@ import {
   FormLabel,
   FormControl,
   Box,
+  InputRightElement,
 } from '@chakra-ui/react'
 
 interface InputProps extends InputBaseProps {
@@ -40,7 +41,7 @@ export const Input = ({
           disabled={disabled}
           {...props}
         />
-        {rightIcon && <InputLeftElement>{rightIcon}</InputLeftElement>}
+        {rightIcon && <InputRightElement>{rightIcon}</InputRightElement>}
       </InputGroup>
       <Box className="text-sm text-red-600">{error}</Box>
     </FormControl>
