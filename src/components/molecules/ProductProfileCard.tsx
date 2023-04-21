@@ -1,13 +1,13 @@
 import { Product } from '@/utils/ProductData'
 
-interface ProductProfileCardpProps {
+interface ProductProfileCardProps {
   product: Product
 }
 
 //todo: find a better naming
 export const ProductProfileCard = ({
   product: { id, name, category_name, description, price },
-}: ProductProfileCardpProps) => {
+}: ProductProfileCardProps) => {
   return (
     <div className="grid grid-flow-row grid-cols-3 gap-4 rounded-md">
       <MockImage />

@@ -48,11 +48,7 @@ export const useRecentlyViewedProducts = (initialData: Product[] = []) => {
         ({ id }) => id === newViewedProduct.id,
       ) !== -1
     ) {
-      console.log('delete')
-      await request<unknown, never, never>(
-        'delete',
-        apiRoute.delete(newViewedProduct.id),
-      )
+      await deleteRecentlyViewedProduct(newViewedProduct.id)
     }
 
     const { data } = await request<unknown, Product, never>(

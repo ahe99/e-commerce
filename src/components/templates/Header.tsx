@@ -1,5 +1,6 @@
 'use client'
 import { Box } from '@chakra-ui/react'
+import { MdShoppingCart } from 'react-icons/md'
 import Link from 'next/link'
 
 const ROUTES = [
@@ -28,13 +29,21 @@ export const Header = () => {
           ))}
         </ul>
       </Box>
-      <Box
-        className="text-amber-800
+      <Box className="flex flex-row gap-4">
+        <Link
+          href="cart"
+          className="text-2xl text-slate-800 hover:cursor-pointer hover:text-slate-400"
+        >
+          <MdShoppingCart />
+        </Link>
+        <Box
+          className="text-amber-800
         hover:cursor-pointer
         hover:text-amber-400
         hover:underline"
-      >
-        <Link href="login">logout</Link>
+        >
+          <Link href="login">logout</Link>
+        </Box>
       </Box>
     </header>
   )

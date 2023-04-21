@@ -10,3 +10,6 @@ export type Product = {
   createdAt: string
   updatedAt: string
 }
+export type CartProduct = Product & {
+  quantity: number
+}

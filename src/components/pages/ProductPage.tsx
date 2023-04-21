@@ -1,10 +1,14 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, use } from 'react'
 import { MdShoppingCart } from 'react-icons/md'
 import { Button } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
 
 import { Product } from '@/utils/ProductData'
-import { useProducts, useRecentlyViewedProducts } from '@/hooks'
+import {
+  useProducts,
+  useRecentlyViewedProducts,
+  useCartProducts,
+} from '@/hooks'
 
 import { Divider } from '@/components/atoms'
 import { QuantitySelector, ProductProfileCard } from '@/components/molecules'
@@ -23,6 +27,7 @@ export const ProductPage = ({
 
   const router = useRouter()
 
+  const cart = useCartProducts()
   const recentlyViewedProducts = useRecentlyViewedProducts(
     prefetchRecentlyProducts,
   )
@@ -37,8 +42,8 @@ export const ProductPage = ({
     [recentlyViewedProducts.query.data],
   )
 
-  const handleAddToCart = () => {
-    console.log(prefetchProduct, quantity)
+  const handleAddToCart = async () => {
+    await cart.create.mutateAsync({ ...prefetchProduct, quantity })
   }
 
   const handleClickProductCard = async (productId: Product['id']) => {

@@ -42,6 +42,12 @@ export const API = {
       create: '/recently',
       delete: (param: string | number) => `/recently/${param}`,
     },
+    cart: {
+      list: '/cart',
+      create: '/cart',
+      update: (param: string | number) => `/cart/${param}`,
+      delete: (param: string | number) => `/cart/${param}`,
+    },
   },
   intervals: {},
   requestTimeout: {},

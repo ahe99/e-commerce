@@ -1,4 +1,5 @@
 'use client'
+export * from './CartProductItem'
 export * from './ProductCard'
 export * from './ProductProfileCard'
 export * from './QuantitySelector'
