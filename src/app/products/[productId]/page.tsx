@@ -4,7 +4,7 @@ import { API, SERVER } from '@/utils/API'
 import { Product } from '@/utils/ProductData'
 
 const getSpecificProduct = (productId: Product['id']) =>
-  SERVER.request<Product>(API.routes.products(productId).data)
+  SERVER.request<Product>(API.routes.products.data(productId))
 
 const getRecentlyViewedProducts = () =>
   SERVER.request<Product[]>(API.routes.recently.list)

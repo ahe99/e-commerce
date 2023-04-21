@@ -25,7 +25,7 @@ export const useProducts = (initialData: Product[] = []) => {
   const getProductsData: QueryFunction<Product[]> = async () => {
     const { data } = await request<Product[], never, never>(
       'get',
-      apiRoute().list,
+      apiRoute.list,
     )
 
     return data
@@ -42,7 +42,7 @@ export const useProducts = (initialData: Product[] = []) => {
   > = async ({ data, productId }) => {
     const { data: response } = await request<unknown, unknown, unknown>(
       'put',
-      apiRoute(productId).update,
+      apiRoute.update(productId),
       {
         params: { id: productId },
         data,
@@ -64,7 +64,7 @@ export const useProducts = (initialData: Product[] = []) => {
   > = async ({ productId }) => {
     const { data: response } = await request<unknown>(
       'delete',
-      apiRoute(productId).delete,
+      apiRoute.delete(productId),
       {
         params: { id: productId },
       },

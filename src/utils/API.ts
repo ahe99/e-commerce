@@ -22,21 +22,21 @@ export const API = {
   baseURL: API_BASE_URL,
 
   routes: {
-    user: (param?: string | number) => ({
-      data: `/user/${param ?? ''}`,
-      update: `/user/${param ?? ''}`,
-      delete: `/user/${param ?? ''}`,
+    user: {
+      data: (param: string | number) => `/user/${param ?? ''}`,
+      update: (param: string | number) => `/user/${param ?? ''}`,
+      delete: (param: string | number) => `/user/${param ?? ''}`,
       list: '/users',
       login: '/login',
       register: '/users',
-    }),
-    products: (param?: string | number) => ({
+    },
+    products: {
       list: '/products',
-      data: `/products/${param ?? ''}`,
+      data: (param: string | number) => `/products/${param ?? ''}`,
       create: '/products',
-      update: `/products/${param ?? ''}`,
-      delete: `/products/${param ?? ''}`,
-    }),
+      update: (param: string | number) => `/products/${param ?? ''}`,
+      delete: (param: string | number) => `/products/${param ?? ''}`,
+    },
     recently: {
       list: '/recently',
       create: '/recently',
