@@ -10,15 +10,12 @@ import { API } from '@/utils/API'
 import { Product } from '@/utils/ProductData'
 
 import { useAPI } from './useAPI'
-import { useProducts } from './useProducts'
-import { useMemo } from 'react'
 
 const MAX_DISPLAY_QUANTITY = 6
 
 export const useRecentlyViewedProducts = (initialData: Product[] = []) => {
   const queryClient = useQueryClient()
 
-  const products = useProducts()
   const { request } = useAPI()
 
   const apiRoute = API.routes.recently
