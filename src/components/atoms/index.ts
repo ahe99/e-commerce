@@ -1,3 +1,4 @@
-export * from './Checkbox'
-export * from './Divider'
-export * from './Input'
+export * from './graphical/Divider'
+
+export * from './interactive/Checkbox'
+export * from './interactive/Input'

@@ -1,6 +1,6 @@
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 
-import { Input } from '../atoms'
+import { Input } from '../../atoms'
 
 export const QuantitySelector = ({
   value = 1,

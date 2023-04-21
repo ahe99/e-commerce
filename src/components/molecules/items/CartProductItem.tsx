@@ -1,6 +1,6 @@
 import { CartProduct } from '@/utils/ProductData'
 
-import { QuantitySelector } from './QuantitySelector'
+import { QuantitySelector } from '../interactive/QuantitySelector'
 
 interface CartProductItemProps {
   cartProduct: CartProduct
