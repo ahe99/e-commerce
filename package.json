@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "bs": "next build && next start",
     "start": "next start",
     "lint": "eslint --ext .ts,.tsx ./src && tsc --noEmit",
     "lint:next": "next lint",

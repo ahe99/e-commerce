@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation'
+import { NotFoundPage } from '@/components/pages'
 
-export default async function NotFound() {
-  redirect('/404')
+export default function NotFound() {
+  return <NotFoundPage />
 }
