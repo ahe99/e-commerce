@@ -37,6 +37,10 @@ export const API = {
       update: `/products/${param ?? ''}`,
       delete: `/products/${param ?? ''}`,
     }),
+    recently: {
+      list: '/recently',
+      create: '/recently',
+    },
   },
   intervals: {},
   requestTimeout: {},

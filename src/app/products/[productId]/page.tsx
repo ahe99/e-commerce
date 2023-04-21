@@ -6,11 +6,20 @@ import { Product } from '@/utils/ProductData'
 const getSpecificProduct = (productId: Product['id']) =>
   SERVER.request<Product>(API.routes.products(productId).data)
 
+const getRecentlyViewedProducts = () =>
+  SERVER.request<Product[]>(API.routes.products().list)
+
 export default async function ProductRoute({
   params: { productId },
 }: {
   params: { productId: Product['id'] }
 }) {
   const prefetchProduct = await getSpecificProduct(productId)
-  return <ProductPage prefetchProduct={prefetchProduct} />
+  const prefetchRecentlyProducts = await getRecentlyViewedProducts()
+  return (
+    <ProductPage
+      prefetchProduct={prefetchProduct}
+      prefetchRecentlyProducts={prefetchRecentlyProducts}
+    />
+  )
 }
