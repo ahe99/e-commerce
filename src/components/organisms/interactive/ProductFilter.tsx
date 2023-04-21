@@ -38,7 +38,7 @@ export const ProductFilter = ({
 }: ProductFilterProps) => {
   return (
     <Box className="flex w-full flex-col">
-      <Box className="mb-2 flex flex-row items-end justify-between border-b-2 border-slate-800 pb-2">
+      <Box className="mb-2 flex flex-col items-end justify-between border-b-2 border-slate-800 pb-2 md:flex-row">
         <Box className="flex flex-row flex-wrap gap-2 ">
           <Checkbox
             label="All"
