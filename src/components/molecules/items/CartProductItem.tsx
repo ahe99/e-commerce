@@ -27,19 +27,21 @@ export const CartProductItem = ({
     <div className="flex flex-col">
       <div className="grid grid-flow-row grid-cols-3 gap-4 rounded-md">
         <MockImage />
-        <div className="col-span-2 flex flex-col">
+        <div className="col-span-2 flex flex-col justify-between">
           <div className="flex flex-col">
             <div className="text-xl font-bold text-slate-800">{name}</div>
             <div className="italic text-slate-400">{category_name}</div>
             <div className="text-slate-600">{description}</div>
           </div>
-          <div>{`$${price}`}</div>
-          <QuantitySelector
-            value={quantity}
-            minValue={0}
-            maxValue={stock_quantity}
-            onChange={(newQuantity) => onChangeQuantity(id, newQuantity)}
-          />
+          <div className="flex flex-col">
+            <div className="flex-shrink-0 text-lg font-bold">{`$${price}`}</div>
+            <QuantitySelector
+              value={quantity}
+              minValue={0}
+              maxValue={stock_quantity}
+              onChange={(newQuantity) => onChangeQuantity(id, newQuantity)}
+            />
+          </div>
         </div>
       </div>
     </div>
