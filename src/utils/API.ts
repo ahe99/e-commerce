@@ -40,6 +40,7 @@ export const API = {
     recently: {
       list: '/recently',
       create: '/recently',
+      delete: (param: string | number) => `/recently/${param}`,
     },
   },
   intervals: {},

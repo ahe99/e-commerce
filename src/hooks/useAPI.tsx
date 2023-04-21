@@ -14,6 +14,7 @@ export const useAPI = () => {
     headers: {
       'Access-Control-Allow-Origin': API.baseURL,
       'Authorization': tokenStore.token,
+      'Content-Type': 'application/json',
     },
   })
   client.interceptors.response.use(

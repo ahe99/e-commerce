@@ -7,7 +7,7 @@ const getSpecificProduct = (productId: Product['id']) =>
   SERVER.request<Product>(API.routes.products(productId).data)
 
 const getRecentlyViewedProducts = () =>
-  SERVER.request<Product[]>(API.routes.products().list)
+  SERVER.request<Product[]>(API.routes.recently.list)
 
 export default async function ProductRoute({
   params: { productId },

@@ -1,13 +1,15 @@
 import React, { useState, useMemo } from 'react'
 import { MdShoppingCart } from 'react-icons/md'
 import { Button } from '@chakra-ui/react'
+import { useRouter } from 'next/navigation'
 
 import { Product } from '@/utils/ProductData'
-import { useRecentlyViewedProducts } from '@/hooks'
+import { useProducts, useRecentlyViewedProducts } from '@/hooks'
 
 import { Divider } from '@/components/atoms'
 import { QuantitySelector, ProductProfileCard } from '@/components/molecules'
 import { ProductList } from '@/components/organisms'
+
 interface ProductPageProps {
   prefetchProduct: Product
   prefetchRecentlyProducts: Product[]
@@ -19,9 +21,16 @@ export const ProductPage = ({
 }: ProductPageProps) => {
   const [quantity, setQuantity] = useState(1)
 
+  const router = useRouter()
+
   const recentlyViewedProducts = useRecentlyViewedProducts(
     prefetchRecentlyProducts,
   )
+  const products = useProducts()
+
+  const productsData = useMemo(() => {
+    return products.query.data ?? []
+  }, [products.query.data])
 
   const recentlyViewedProductsData = useMemo(
     () => recentlyViewedProducts.query.data ?? [],
@@ -30,6 +39,15 @@ export const ProductPage = ({
 
   const handleAddToCart = () => {
     console.log(prefetchProduct, quantity)
+  }
+
+  const handleClickProductCard = async (productId: Product['id']) => {
+    const newViewedProduct = productsData.find(({ id }) => id === productId)
+    if (newViewedProduct) {
+      await recentlyViewedProducts.create.mutateAsync(newViewedProduct)
+    }
+
+    router.push(`products/${productId}`)
   }
 
   return (
@@ -57,7 +75,10 @@ export const ProductPage = ({
       </div>
       <Divider />
       <div className="text-2xl">Recently viewed</div>
-      <ProductList products={recentlyViewedProductsData} />
+      <ProductList
+        products={recentlyViewedProductsData}
+        onClickItem={handleClickProductCard}
+      />
     </main>
   )
 }
