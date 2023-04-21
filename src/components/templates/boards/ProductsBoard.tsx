@@ -78,10 +78,15 @@ export const ProductsBoard = ({
 
   const handleSelectPage = (newPage: number) => {
     setCurrentPage(newPage)
+    scrollToTop()
   }
 
   const resetPagination = () => {
     setCurrentPage(1)
+  }
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0 })
   }
 
   const filteredProducts = products.filter((product) =>

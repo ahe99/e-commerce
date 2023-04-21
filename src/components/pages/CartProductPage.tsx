@@ -1,4 +1,6 @@
 import { useMemo } from 'react'
+import { Button } from '@chakra-ui/react'
+import { MdArrowRight } from 'react-icons/md'
 
 import { CartProduct } from '@/utils/ProductData'
 import { useCartProducts } from '@/hooks'
@@ -37,13 +39,29 @@ export const CartProductPage = ({
     }
   }
 
+  const totalPrice = cartProductsData
+    .map(({ price }) => price)
+    .reduce((previousValue, currentValue) => previousValue + currentValue)
   return (
-    <main className="mx-auto flex  w-10/12 flex-col items-center gap-8 p-8">
+    <main className="mx-auto flex  w-10/12 flex-col p-8">
       <CartProductList
         cartProducts={cartProductsData}
         onDeleteCartProduct={handleDeleteCartProduct}
         onUpdateCartProductQuantity={handleUpdateCartProductQuantity}
       />
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-row justify-between">
+          <div>Total</div>
+          <div>{`$${totalPrice}`}</div>
+        </div>
+        <Button
+          variant="outline"
+          className="w-max items-center self-end border-2 border-slate-800 text-slate-800"
+        >
+          Checkout
+          <MdArrowRight className="text-xl" />
+        </Button>
+      </div>
     </main>
   )
 }

@@ -1,5 +1,8 @@
+import { Fragment } from 'react'
+
 import { CartProduct } from '@/utils/ProductData'
 
+import { Divider } from '@/components/atoms'
 import { CartProductItem } from '@/components/molecules'
 
 interface CartProductListProps {
@@ -20,7 +23,6 @@ export const CartProductList = ({
     selectedProductId: CartProduct['id'],
     newQuantity: number,
   ) => {
-    console.log(selectedProductId, ' ', newQuantity)
     if (newQuantity === 0) {
       handleRemoveCartProduct(selectedProductId)
     } else {
@@ -36,11 +38,13 @@ export const CartProductList = ({
   return (
     <div className="flex flex-col">
       {cartProducts.map((cartProduct) => (
-        <CartProductItem
-          key={cartProduct.id}
-          cartProduct={cartProduct}
-          onChangeQuantity={handleChangeCartProductQuantity}
-        />
+        <Fragment key={cartProduct.id}>
+          <CartProductItem
+            cartProduct={cartProduct}
+            onChangeQuantity={handleChangeCartProductQuantity}
+          />
+          <Divider className="my-4" />
+        </Fragment>
       ))}
     </div>
   )
