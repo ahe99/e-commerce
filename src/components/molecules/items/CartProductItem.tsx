@@ -31,7 +31,7 @@ export const CartProductItem = ({
           <div className="flex flex-col">
             <div className="text-xl font-bold text-slate-800">{name}</div>
             <div className="italic text-slate-400">{category_name}</div>
-            <div className="text-slate-600">{description}</div>
+            <div className="text-slate-600 line-clamp-2">{description}</div>
           </div>
           <div className="flex flex-col">
             <div className="flex-shrink-0 text-lg font-bold">{`$${price}`}</div>

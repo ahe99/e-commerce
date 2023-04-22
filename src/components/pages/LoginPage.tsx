@@ -13,7 +13,7 @@ export const LoginPage = () => {
   }
 
   return (
-    <main className="grid h-full grid-flow-row grid-cols-2">
+    <main className="grid h-full grid-flow-row grid-cols-1 grid-rows-2 sm:grid-cols-2 sm:grid-rows-1">
       <Box className="flex h-full flex-col items-center justify-center gap-4">
         <Box className="text-2xl">LOGIN</Box>
         <UserLoginForm onSubmit={login} />

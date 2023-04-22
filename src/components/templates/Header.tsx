@@ -20,7 +20,7 @@ export const Header = () => {
   return (
     <header className="flex h-20 items-center justify-between bg-slate-400 px-10">
       <Box className="flex flex-row items-center gap-2">
-        <h1 className="border-r-2 border-slate-200 pr-2 text-2xl text-slate-800">
+        <h1 className="flex-shrink-0 border-r-2 border-slate-200 pr-2 text-2xl text-slate-800">
           e-commerce
         </h1>
         <ul className="flex flex-row items-center gap-2">

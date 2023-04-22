@@ -43,7 +43,8 @@ export const CartProductPage = ({
     .map(({ price }) => price)
     .reduce((previousValue, currentValue) => previousValue + currentValue)
   return (
-    <main className="mx-auto flex  w-10/12 flex-col p-8">
+    <main className="mx-auto flex w-full flex-col p-4 sm:p-8 landscape:w-3/5">
+      <h1 className="mb-8 text-4xl">Shopping Cart</h1>
       <CartProductList
         cartProducts={cartProductsData}
         onDeleteCartProduct={handleDeleteCartProduct}

@@ -56,7 +56,7 @@ export const ProductPage = ({
   }
 
   return (
-    <main className="mx-auto flex w-10/12 flex-col gap-8 py-16">
+    <main className="mx-auto flex w-full flex-col gap-8 p-4 sm:p-8 landscape:w-10/12">
       <ProductProfileCard product={prefetchProduct} />
 
       <div className="flex w-2/3 flex-row flex-wrap items-end gap-2 self-end">

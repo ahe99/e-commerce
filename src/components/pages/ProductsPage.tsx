@@ -30,7 +30,7 @@ export const ProductsPage = ({ prefetchProducts = [] }: ProductsPageProps) => {
   }
 
   return (
-    <main className="mx-auto flex w-10/12 flex-col items-center p-8">
+    <main className="mx-auto flex w-full flex-col items-center p-4 sm:p-8 landscape:w-10/12">
       <ProductsBoard
         products={productsData}
         onClickItem={handleClickProductCard}
