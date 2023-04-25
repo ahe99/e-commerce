@@ -12,7 +12,7 @@ export const OrderItem = ({
   order: { id, createdAt, products, totalPrice },
 }: OrderItemProps) => {
   return (
-    <div className="flex flex-col gap-2 rounded-md border-slate-600 hover:cursor-pointer hover:opacity-40">
+    <div className="flex flex-col gap-2 rounded-md border-2 border-slate-400 p-4 hover:cursor-pointer hover:opacity-40">
       <div className="flex flex-row justify-between font-bold">
         <div>{`id: ${id}`}</div>
         <div>{dayjs(createdAt).format('YYYY-MM-DD HH:mm:ss')}</div>
