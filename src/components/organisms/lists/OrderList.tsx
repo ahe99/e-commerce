@@ -1,10 +1,8 @@
 import { motion } from 'framer-motion'
 
-import { Divider } from '@/components/atoms'
 import { OrderItem } from '@/components/molecules'
 
 import { Order } from '@/utils/ProductData'
-import { Fragment } from 'react'
 
 interface OrderListProps {
   orders: Order[]
@@ -23,13 +21,14 @@ export const OrderList = ({
         y: 0,
       }}
       transition={{ ease: 'easeInOut' }}
-      className="flex flex-col"
+      className="flex flex-col gap-4"
     >
-      {orders.map((order, index) => (
-        <Fragment key={order.id}>
-          {index !== 0 && <Divider className="my-4" />}
-          <OrderItem order={order} onClick={() => onClickItem(order.id)} />
-        </Fragment>
+      {orders.map((order) => (
+        <OrderItem
+          key={order.id}
+          order={order}
+          onClick={() => onClickItem(order.id)}
+        />
       ))}
     </motion.div>
   )
