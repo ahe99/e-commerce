@@ -1,6 +1,5 @@
 'use client'
-import { useEffect, useRef } from 'react'
-import { usePathname } from 'next/navigation'
+import { useRef } from 'react'
 import Link from 'next/link'
 import {
   Box,
@@ -31,16 +30,8 @@ const ROUTES = [
 
 const MenuPortrait = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const pathName = usePathname()
 
   const btnRef = useRef<any>(null)
-
-  useEffect(() => {
-    //auto close drawer whenerver path changed
-    if (pathName) {
-      onClose()
-    }
-  }, [pathName])
 
   return (
     <Box className="landscape:hidden">
@@ -108,7 +99,7 @@ const NavItem = ({
   name: string
   route: string
   className?: string
-  onClick: () => void
+  onClick?: () => void
 }) => {
   return (
     <li
