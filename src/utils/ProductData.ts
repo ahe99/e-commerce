@@ -19,6 +19,6 @@ export type Order = {
   createdAt: string
   updatedAt: string
   buyer: string
-  price: number
+  totalPrice: number
   description: string
 }
