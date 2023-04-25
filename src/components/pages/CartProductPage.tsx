@@ -41,7 +41,7 @@ export const CartProductPage = ({
 
   const totalPrice = cartProductsData
     .map(({ price }) => price)
-    .reduce((previousValue, currentValue) => previousValue + currentValue)
+    .reduce((previousValue, currentValue) => previousValue + currentValue, 0)
   return (
     <main className="mx-auto flex w-full flex-col p-4 sm:p-8 landscape:w-3/5">
       <h1 className="mb-8 text-4xl">Shopping Cart</h1>
