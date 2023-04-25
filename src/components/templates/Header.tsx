@@ -37,13 +37,33 @@ export const Header = () => {
             aria-label="Profile"
             icon={<MdPerson className="text-4xl" />}
           />
-          <MenuList>
-            <MenuItem>Profile</MenuItem>
-            <MenuItem>History Orders</MenuItem>
-            <MenuItem className="text-red-400">Logout</MenuItem>
-          </MenuList>
+          <ProfileMenu.Auth />
         </Menu>
       </Box>
     </header>
   )
+}
+
+const ProfileMenu = {
+  Auth: () => (
+    <MenuList>
+      <MenuItem>
+        <Link href="/my-profile">Profile</Link>
+      </MenuItem>
+      <MenuItem>
+        <Link href="/orders">History Orders</Link>
+      </MenuItem>
+      <MenuItem onClick={() => console.log('logout')}>Logout</MenuItem>
+    </MenuList>
+  ),
+  Default: () => (
+    <MenuList>
+      <MenuItem>
+        <Link href="/login">Login</Link>
+      </MenuItem>
+      <MenuItem>
+        <Link href="/register">Register</Link>
+      </MenuItem>
+    </MenuList>
+  ),
 }

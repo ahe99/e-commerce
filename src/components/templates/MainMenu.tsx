@@ -1,5 +1,6 @@
 'use client'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import {
   Box,
@@ -18,36 +19,28 @@ import { MdMenu } from 'react-icons/md'
 const ROUTES = [
   {
     id: 'home',
-    name: 'home',
+    name: 'Home',
     route: '/',
   },
   {
     id: 'products',
-    name: 'products',
+    name: 'Products',
     route: '/products',
   },
 ]
 
-const NavItem = ({
-  name,
-  route,
-  className,
-}: {
-  name: string
-  route: string
-  className?: string
-}) => {
-  return (
-    <li
-      className={`${className} text-slate-800 hover:cursor-pointer hover:text-slate-400`}
-    >
-      <Link href={route}>{name}</Link>
-    </li>
-  )
-}
 const MenuPortrait = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const pathName = usePathname()
+
   const btnRef = useRef<any>(null)
+
+  useEffect(() => {
+    //auto close drawer whenerver path changed
+    if (pathName) {
+      onClose()
+    }
+  }, [pathName])
 
   return (
     <Box className="landscape:hidden">
@@ -65,11 +58,11 @@ const MenuPortrait = () => {
       >
         <DrawerOverlay />
         <DrawerContent className="bg-slate-200">
-          <DrawerHeader className="border-b-2 border-slate-400">
+          <DrawerHeader className="border-b-2 border-dashed border-slate-400">
             e-commerce
           </DrawerHeader>
 
-          <DrawerBody className="">
+          <DrawerBody>
             <ul className="flex flex-col">
               {ROUTES.map(({ id, name, route }) => (
                 <NavItem
@@ -77,6 +70,7 @@ const MenuPortrait = () => {
                   name={name}
                   route={route}
                   className="py-4 text-lg"
+                  onClick={onClose}
                 />
               ))}
             </ul>
@@ -102,6 +96,28 @@ const MenuLandscape = () => {
         />
       ))}
     </ul>
+  )
+}
+
+const NavItem = ({
+  name,
+  route,
+  className,
+  onClick = () => {},
+}: {
+  name: string
+  route: string
+  className?: string
+  onClick: () => void
+}) => {
+  return (
+    <li
+      className={`${className} text-slate-800 hover:cursor-pointer hover:text-slate-400`}
+    >
+      <Link href={route} onClick={onClick}>
+        {name}
+      </Link>
+    </li>
   )
 }
 export const MainMenu = {
