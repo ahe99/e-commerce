@@ -2,6 +2,7 @@
 export * from './CartProductPage'
 export * from './LoginPage'
 export * from './NotFoundPage'
+export * from './OrdersPage'
 export * from './ProductsPage'
 export * from './ProductPage'
 export * from './OverviewPage'

@@ -48,6 +48,11 @@ export const API = {
       update: (param: string | number) => `/cart/${param}`,
       delete: (param: string | number) => `/cart/${param}`,
     },
+    orders: {
+      list: '/orders',
+      data: (param: string | number) => `/orders/${param ?? ''}`,
+      create: '/orders',
+    },
   },
   intervals: {},
   requestTimeout: {},

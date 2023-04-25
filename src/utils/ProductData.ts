@@ -13,3 +13,12 @@ export type Product = {
 export type CartProduct = Product & {
   quantity: number
 }
+export type Order = {
+  id: string
+  products: CartProduct[]
+  createdAt: string
+  updatedAt: string
+  buyer: string
+  price: number
+  description: string
+}
