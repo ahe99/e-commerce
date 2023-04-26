@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { useRouter } from 'next/navigation'
 
-import { useProducts, useRecentlyViewedProducts } from '@/hooks'
+import { useProducts } from '@/hooks'
 import { Product } from '@/utils/ProductData'
 
 import { ProductsBoard } from '@/components/templates'
@@ -13,7 +13,6 @@ interface ProductsPageProps {
 export const ProductsPage = ({ prefetchProducts = [] }: ProductsPageProps) => {
   const router = useRouter()
 
-  const recentlyViewedProducts = useRecentlyViewedProducts()
   const products = useProducts(prefetchProducts)
 
   const productsData = useMemo(() => {
@@ -21,11 +20,6 @@ export const ProductsPage = ({ prefetchProducts = [] }: ProductsPageProps) => {
   }, [products.query.data])
 
   const handleClickProductCard = async (productId: Product['id']) => {
-    const newViewedProduct = productsData.find(({ id }) => id === productId)
-    if (newViewedProduct) {
-      await recentlyViewedProducts.create.mutateAsync(newViewedProduct)
-    }
-
     router.push(`products/${productId}`)
   }
 

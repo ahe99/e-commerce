@@ -1,4 +1,4 @@
-import React, { useState, useMemo, use } from 'react'
+import React, { useState, useMemo, useLayoutEffect } from 'react'
 import { MdShoppingCart } from 'react-icons/md'
 import { Button } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
@@ -42,16 +42,16 @@ export const ProductPage = ({
     [recentlyViewedProducts.query.data],
   )
 
+  useLayoutEffect(() => {
+    //add product to recently view whenever the page is entered
+    recentlyViewedProducts.create.mutate(prefetchProduct)
+  }, [])
+
   const handleAddToCart = async () => {
     await cart.create.mutateAsync({ ...prefetchProduct, quantity })
   }
 
   const handleClickProductCard = async (productId: Product['id']) => {
-    const newViewedProduct = productsData.find(({ id }) => id === productId)
-    if (newViewedProduct) {
-      await recentlyViewedProducts.create.mutateAsync(newViewedProduct)
-    }
-
     router.push(`products/${productId}`)
   }
 

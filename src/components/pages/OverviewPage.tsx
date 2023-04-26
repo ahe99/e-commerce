@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { Product } from '@/utils/ProductData'
 
 import { Carousel, ProductsBoard } from '@/components/templates'
-import { useProducts, useRecentlyViewedProducts } from '@/hooks'
+import { useProducts } from '@/hooks'
 
 const mockCarousel = [1, 2, 3, 4]
 
@@ -15,7 +15,6 @@ interface OverviewPageProps {
 export const OverviewPage = ({ prefetchProducts = [] }: OverviewPageProps) => {
   const router = useRouter()
 
-  const recentlyViewedProducts = useRecentlyViewedProducts()
   const products = useProducts(prefetchProducts)
 
   const productsData = useMemo(() => {
@@ -23,11 +22,6 @@ export const OverviewPage = ({ prefetchProducts = [] }: OverviewPageProps) => {
   }, [products.query.data])
 
   const handleClickProductCard = async (productId: Product['id']) => {
-    const newViewedProduct = productsData.find(({ id }) => id === productId)
-    if (newViewedProduct) {
-      await recentlyViewedProducts.create.mutateAsync(newViewedProduct)
-    }
-
     router.push(`products/${productId}`)
   }
 
