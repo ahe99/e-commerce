@@ -2,19 +2,20 @@ import { motion } from 'framer-motion'
 
 import { Product } from '@/utils/ProductData'
 
-interface ProductCardProps extends Partial<Product> {
-  onClick?: () => void
+interface ProductCardProps {
+  product: Product
+  onClick?: (productId: Product['id']) => void
 }
+
 export const ProductCard = ({
-  name = '',
-  price,
+  product: { id, name = '', price },
   onClick = () => {},
 }: ProductCardProps) => {
   return (
     <motion.div
       whileHover={{ opacity: 0.4 }}
       className="flex h-56 flex-col gap-2 rounded-md hover:cursor-pointer"
-      onClick={onClick}
+      onClick={() => onClick(id)}
     >
       <MockImage />
       <div className="flex flex-col">

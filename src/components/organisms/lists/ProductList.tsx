@@ -8,6 +8,7 @@ interface ProductListProps {
   products: Product[]
   onClickItem?: (productId: Product['id']) => void
 }
+
 export const ProductList = ({
   products,
   onClickItem = () => {},
@@ -24,13 +25,7 @@ export const ProductList = ({
       className="grid grid-flow-row grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3"
     >
       {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          name={product.name}
-          description={product.description}
-          price={product.price}
-          onClick={() => onClickItem(product.id)}
-        />
+        <ProductCard key={product.id} product={product} onClick={onClickItem} />
       ))}
     </motion.div>
   )
