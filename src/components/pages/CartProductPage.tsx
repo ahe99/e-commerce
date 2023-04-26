@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { Button } from '@chakra-ui/react'
 import { MdArrowRight } from 'react-icons/md'
+import { useRouter } from 'next/navigation'
 
 import { CartProduct } from '@/utils/ProductData'
 import { useCartProducts } from '@/hooks'
@@ -15,6 +16,7 @@ export const CartProductPage = ({
   prefetchCartProducts = [],
 }: CartProductPageProps) => {
   const cartProducts = useCartProducts(prefetchCartProducts)
+  const router = useRouter()
 
   const cartProductsData = useMemo(
     () => cartProducts.query.data ?? [],
@@ -39,6 +41,12 @@ export const CartProductPage = ({
     }
   }
 
+  const handleClickCartProductItem = async (
+    cartProductId: CartProduct['id'],
+  ) => {
+    router.push(`products/${cartProductId}`)
+  }
+
   const totalPrice = cartProductsData
     .map(({ price }) => price)
     .reduce((previousValue, currentValue) => previousValue + currentValue, 0)
@@ -49,6 +57,7 @@ export const CartProductPage = ({
         cartProducts={cartProductsData}
         onDeleteCartProduct={handleDeleteCartProduct}
         onUpdateCartProductQuantity={handleUpdateCartProductQuantity}
+        onClickitem={handleClickCartProductItem}
       />
       <div className="flex flex-col gap-4">
         <div className="flex flex-row justify-between text-lg font-bold">

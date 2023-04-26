@@ -8,6 +8,7 @@ interface CartProductItemProps {
     cartProductId: CartProduct['id'],
     newQuantity: number,
   ) => void
+  onClick?: (cartProductId: CartProduct['id']) => void
 }
 
 //todo: find a better naming
@@ -22,14 +23,18 @@ export const CartProductItem = ({
     quantity,
   },
   onChangeQuantity = () => {},
+  onClick = () => {},
 }: CartProductItemProps) => {
   return (
     <div className="flex flex-col">
       <div className="grid grid-flow-row grid-cols-3 gap-4 rounded-md">
         <MockImage />
         <div className="col-span-2 flex flex-col justify-between">
-          <div className="flex flex-col">
-            <div className="text-xl font-bold text-slate-800">{name}</div>
+          <div
+            className="flex flex-col hover:cursor-pointer hover:opacity-40"
+            onClick={() => onClick(id)}
+          >
+            <div className="text-xl font-bold text-slate-800 ">{name}</div>
             <div className="italic text-slate-400">{category_name}</div>
             <div className="text-slate-600 line-clamp-2">{description}</div>
           </div>

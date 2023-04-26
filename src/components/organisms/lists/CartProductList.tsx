@@ -12,12 +12,14 @@ interface CartProductListProps {
     newQuantity: number,
   ) => void
   onDeleteCartProduct?: (selectedProductId: CartProduct['id']) => void
+  onClickitem?: (cartProductId: CartProduct['id']) => void
 }
 
 export const CartProductList = ({
   cartProducts = [],
   onDeleteCartProduct = () => {},
   onUpdateCartProductQuantity = () => {},
+  onClickitem = () => {},
 }: CartProductListProps) => {
   const handleChangeCartProductQuantity = (
     selectedProductId: CartProduct['id'],
@@ -42,6 +44,7 @@ export const CartProductList = ({
           <CartProductItem
             cartProduct={cartProduct}
             onChangeQuantity={handleChangeCartProductQuantity}
+            onClick={onClickitem}
           />
           <Divider className="my-4" />
         </Fragment>
