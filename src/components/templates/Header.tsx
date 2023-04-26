@@ -24,15 +24,16 @@ export const Header = () => {
         <MainMenu.Lanscape />
       </Box>
       <Box className="flex flex-row items-center gap-4">
-        <Link
-          href="cart"
-          className="text-4xl text-slate-800 hover:cursor-pointer hover:text-slate-400"
-        >
-          <MdShoppingCart />
-        </Link>
+        <IconButton
+          aria-label="shopping cart"
+          icon={
+            <Link href="cart">
+              <MdShoppingCart className="text-4xl" />
+            </Link>
+          }
+        />
         <Menu>
           <MenuButton
-            className="rounded-full"
             as={IconButton}
             aria-label="Profile"
             icon={<MdPerson className="text-4xl" />}
@@ -48,12 +49,18 @@ const ProfileMenu = {
   Auth: () => (
     <MenuList>
       <MenuItem>
-        <Link href="/my-profile">Profile</Link>
+        <Link className="h-full w-full" href="/my-profile">
+          Profile
+        </Link>
       </MenuItem>
       <MenuItem>
-        <Link href="/orders">History Orders</Link>
+        <Link className="h-full w-full" href="/orders">
+          History Orders
+        </Link>
       </MenuItem>
-      <MenuItem onClick={() => console.log('logout')}>Logout</MenuItem>
+      <MenuItem className="h-full w-full" onClick={() => console.log('logout')}>
+        Logout
+      </MenuItem>
     </MenuList>
   ),
   Default: () => (

@@ -51,7 +51,7 @@ export const CartProductPage = ({
         onUpdateCartProductQuantity={handleUpdateCartProductQuantity}
       />
       <div className="flex flex-col gap-4">
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between text-lg font-bold">
           <div>Total</div>
           <div>{`$${totalPrice}`}</div>
         </div>

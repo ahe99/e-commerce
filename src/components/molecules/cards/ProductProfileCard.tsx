@@ -2,6 +2,7 @@ import { Product } from '@/utils/ProductData'
 
 interface ProductProfileCardProps {
   product: Product
+  quantity?: number
 }
 
 //todo: find a better naming

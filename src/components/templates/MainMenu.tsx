@@ -54,13 +54,13 @@ const MenuPortrait = () => {
           </DrawerHeader>
 
           <DrawerBody>
-            <ul className="flex flex-col">
+            <ul className="flex w-full flex-col">
               {ROUTES.map(({ id, name, route }) => (
                 <NavItem
                   key={id}
                   name={name}
                   route={route}
-                  className="py-4 text-lg"
+                  className="h-full w-full py-4 text-lg"
                   onClick={onClose}
                 />
               ))}
@@ -83,7 +83,7 @@ const MenuLandscape = () => {
           key={id}
           name={name}
           route={route}
-          className="hover:underline"
+          className="rounded-md p-2 text-lg"
         />
       ))}
     </ul>
@@ -102,10 +102,12 @@ const NavItem = ({
   onClick?: () => void
 }) => {
   return (
-    <li
-      className={`${className} text-slate-800 hover:cursor-pointer hover:text-slate-400`}
-    >
-      <Link href={route} onClick={onClick}>
+    <li>
+      <Link
+        className={`${className} inline-block h-full w-full text-slate-800 hover:cursor-pointer hover:bg-slate-200 `}
+        href={route}
+        onClick={onClick}
+      >
         {name}
       </Link>
     </li>
