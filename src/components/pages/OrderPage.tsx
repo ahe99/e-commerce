@@ -9,7 +9,7 @@ interface OrderPageProps {
 }
 
 export const OrderPage = ({
-  prefetchOrder: { id, createdAt, totalPrice, products },
+  prefetchOrder: { id, createdAt, totalPrice, products = [] },
 }: OrderPageProps) => {
   return (
     <main className="mx-auto flex w-full flex-col items-stretch p-4 sm:p-8 landscape:w-10/12">
