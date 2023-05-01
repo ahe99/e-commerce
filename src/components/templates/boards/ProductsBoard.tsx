@@ -8,7 +8,6 @@ import {
   SortBaseType,
 } from '@/components/organisms'
 
-import { mockCategories } from '@/utils/mockData'
 import { Product } from '@/utils/ProductData'
 
 type ProductFilterType = {
@@ -29,8 +28,12 @@ export const ProductsBoard = ({
   productsPerPage = PRODUCTS_PER_PAGE,
   onClickItem = () => {},
 }: ProductsBoardProps) => {
+  const allCategories = [
+    ...new Set(products.map(({ category_name }) => category_name)),
+  ]
+
   const [filter, setFilter] = useState<ProductFilterType>({
-    category: mockCategories,
+    category: allCategories,
     text: '',
   })
   const [currentPage, setCurrentPage] = useState(1)
@@ -63,10 +66,10 @@ export const ProductsBoard = ({
     resetPagination()
     setFilter((prev) => {
       const { text, category } = prev
-      if (category.length === mockCategories.length) {
+      if (category.length === allCategories.length) {
         return { ...prev, category: [] }
       } else {
-        return { ...prev, category: mockCategories }
+        return { ...prev, category: allCategories }
       }
     })
   }
@@ -121,7 +124,7 @@ export const ProductsBoard = ({
     <Fragment>
       <div className="flex flex-col gap-2">
         <ProductFilter
-          categoryOptions={mockCategories}
+          categoryOptions={allCategories}
           selectedOptions={filter.category}
           onChangeSearchText={handleChangeSearchText}
           onSelectCategory={handleChangeCategory}
