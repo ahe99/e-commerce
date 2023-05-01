@@ -24,7 +24,7 @@ export const OrderPage = ({
         {products.map((product) => (
           <div key={product.id} className="flex flex-row">
             <ProductProfileCard product={product} />
-            <div className="flex-shrink-0 self-end">{`x${product.quantity}`}</div>
+            <div className="flex-shrink-0 self-start font-bold">{`x${product.quantity}`}</div>
           </div>
         ))}
         <Divider />

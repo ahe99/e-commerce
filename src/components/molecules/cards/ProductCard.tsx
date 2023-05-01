@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 import { Product } from '@/utils/ProductData'
 
@@ -8,16 +9,18 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({
-  product: { id, name = '', price },
+  product: { id, name = '', price, image },
   onClick = () => {},
 }: ProductCardProps) => {
   return (
     <motion.div
       whileHover={{ opacity: 0.4 }}
-      className="flex h-56 flex-col gap-2 rounded-md hover:cursor-pointer"
+      className="relative flex flex-col gap-2 hover:cursor-pointer"
       onClick={() => onClick(id)}
     >
-      <MockImage />
+      <div className="relative aspect-square rounded-md">
+        <Image alt={name} src={image} fill className="object-contain" />
+      </div>
       <div className="flex flex-col">
         <div className="overflow-hidden text-ellipsis whitespace-nowrap font-bold">
           {name}
@@ -28,6 +31,3 @@ export const ProductCard = ({
   )
 }
 export default ProductCard
-const MockImage = () => (
-  <div className="w-full flex-1 rounded-md bg-slate-600" />
-)

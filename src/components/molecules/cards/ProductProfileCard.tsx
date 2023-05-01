@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import { Product } from '@/utils/ProductData'
 
 interface ProductProfileCardProps {
@@ -7,12 +9,14 @@ interface ProductProfileCardProps {
 
 //todo: find a better naming
 export const ProductProfileCard = ({
-  product: { id, name, category_name, description, price },
+  product: { id, name, category_name, description, price, image },
 }: ProductProfileCardProps) => {
   return (
-    <div className="grid grid-flow-row grid-cols-3 gap-4 rounded-md">
-      <MockImage />
-      <div className="col-span-2 flex flex-col">
+    <div className="grid grid-flow-row grid-cols-4 gap-4">
+      <div className="relative col-span-1 aspect-square rounded-md">
+        <Image alt={name} src={image} fill className="object-contain" />
+      </div>
+      <div className="col-span-3 flex flex-col">
         <div className="flex flex-col">
           <div className="text-xl font-bold text-slate-800">{name}</div>
           <div className="italic text-slate-400">{category_name}</div>
@@ -21,10 +25,5 @@ export const ProductProfileCard = ({
         <div>{`$${price}`}</div>
       </div>
     </div>
-  )
-}
-const MockImage = () => {
-  return (
-    <div className="col-span-1 aspect-square w-full rounded-md bg-slate-600" />
   )
 }

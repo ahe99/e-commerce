@@ -9,6 +9,7 @@ export type Product = {
   category_name: string
   createdAt: string
   updatedAt: string
+  image: string
 }
 export type CartProduct = Product & {
   quantity: number

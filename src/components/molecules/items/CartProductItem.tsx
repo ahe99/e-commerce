@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import { CartProduct } from '@/utils/ProductData'
 
 import { QuantitySelector } from '../interactive/QuantitySelector'
@@ -21,6 +23,7 @@ export const CartProductItem = ({
     price,
     stock_quantity,
     quantity,
+    image,
   },
   onChangeQuantity = () => {},
   onClick = () => {},
@@ -28,7 +31,9 @@ export const CartProductItem = ({
   return (
     <div className="flex flex-col">
       <div className="grid grid-flow-row grid-cols-3 gap-4 rounded-md">
-        <MockImage />
+        <div className="relative col-span-1 aspect-square rounded-md">
+          <Image alt={name} src={image} fill className="object-contain" />
+        </div>
         <div className="col-span-2 flex flex-col justify-between">
           <div
             className="flex flex-col hover:cursor-pointer hover:opacity-40"
