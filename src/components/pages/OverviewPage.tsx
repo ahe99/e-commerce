@@ -26,7 +26,7 @@ export const OverviewPage = ({ prefetchProducts = [] }: OverviewPageProps) => {
   }
 
   return (
-    <main className="mx-auto flex w-full flex-col items-center gap-8 p-4 sm:p-8 landscape:w-10/12">
+    <main className="mx-auto flex w-full flex-col gap-8 p-4 sm:p-8 landscape:w-10/12">
       <Carousel
         className="aspect-video w-full overflow-hidden rounded-md"
         autoPlay

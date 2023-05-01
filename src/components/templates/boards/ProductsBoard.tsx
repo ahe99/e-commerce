@@ -133,11 +133,13 @@ export const ProductsBoard = ({
         />
         <ProductList onClickItem={onClickItem} products={paginatedProducts} />
       </div>
-      <Pagination
-        total={Math.ceil(searchedProducts.length / PRODUCTS_PER_PAGE)}
-        currentPage={currentPage}
-        onChange={handleSelectPage}
-      />
+      <div className="mx-auto">
+        <Pagination
+          total={Math.ceil(searchedProducts.length / PRODUCTS_PER_PAGE)}
+          currentPage={currentPage}
+          onChange={handleSelectPage}
+        />
+      </div>
     </Fragment>
   )
 }
