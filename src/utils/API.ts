@@ -53,6 +53,9 @@ export const API = {
       data: (param: string | number) => `/orders/${param ?? ''}`,
       create: '/orders',
     },
+    banners: {
+      list: '/banners',
+    },
   },
   intervals: {},
   requestTimeout: {},

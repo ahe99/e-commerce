@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 import { Product } from '@/utils/ProductData'
 
@@ -10,9 +11,13 @@ const mockCarousel = [1, 2, 3, 4]
 
 interface OverviewPageProps {
   prefetchProducts?: Product[]
+  prefetchBanners?: string[]
 }
 
-export const OverviewPage = ({ prefetchProducts = [] }: OverviewPageProps) => {
+export const OverviewPage = ({
+  prefetchProducts = [],
+  prefetchBanners = [],
+}: OverviewPageProps) => {
   const router = useRouter()
 
   const products = useProducts(prefetchProducts)
@@ -32,13 +37,19 @@ export const OverviewPage = ({ prefetchProducts = [] }: OverviewPageProps) => {
         autoPlay
         allowPan
       >
-        {mockCarousel.map((item, index) => (
+        {prefetchBanners.map((src, index) => (
           <div
-            key={index}
-            className={`h-full w-full cursor-pointer ${
-              index % 2 ? 'bg-stone-400' : 'bg-slate-400'
-            }`}
-          />
+            key={src}
+            className="cursor-pointer overflow-hidden rounded-md bg-slate-50"
+          >
+            <Image
+              alt={src}
+              src={src}
+              fill
+              className="object-cover"
+              draggable={false}
+            />
+          </div>
         ))}
       </Carousel>
       <ProductsBoard
