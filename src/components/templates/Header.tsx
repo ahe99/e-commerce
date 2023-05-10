@@ -19,7 +19,7 @@ export const Header = () => {
       <Box className="flex flex-row items-center gap-2">
         <MainMenu.Portrait />
         <h1 className="flex-shrink-0 border-slate-200 pr-2 text-2xl text-slate-800 landscape:border-r-2">
-          e-commerce
+          Cravings Fix
         </h1>
         <MainMenu.Lanscape />
       </Box>

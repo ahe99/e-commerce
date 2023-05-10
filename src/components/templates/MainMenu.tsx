@@ -50,7 +50,7 @@ const MenuPortrait = () => {
         <DrawerOverlay />
         <DrawerContent className="bg-slate-200">
           <DrawerHeader className="border-b-2 border-dashed border-slate-400">
-            e-commerce
+            Cravings Fix
           </DrawerHeader>
 
           <DrawerBody>
