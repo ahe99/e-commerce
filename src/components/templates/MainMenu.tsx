@@ -1,6 +1,7 @@
 'use client'
 import { useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   Box,
   IconButton,
@@ -41,6 +42,7 @@ const MenuPortrait = () => {
         icon={<MdMenu className="text-4xl" />}
         onClick={onOpen}
       />
+      <Image alt="logo" src="/logo.jpg" fill className="object-contain" />
       <Drawer
         isOpen={isOpen}
         placement="left"
@@ -77,7 +79,10 @@ const MenuPortrait = () => {
 }
 const MenuLandscape = () => {
   return (
-    <ul className="flex flex-row items-center gap-2 portrait:hidden">
+    <ul className="flex h-full w-full flex-row items-center gap-2 portrait:hidden">
+      <li className="relative h-4/5 w-40 overflow-hidden rounded-md">
+        <Image alt="logo" src="/logo.jpeg" fill className="object-cover" />
+      </li>
       {ROUTES.map(({ id, name, route }) => (
         <NavItem
           key={id}

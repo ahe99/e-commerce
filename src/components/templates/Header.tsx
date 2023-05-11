@@ -15,12 +15,10 @@ import { MainMenu } from './MainMenu'
 
 export const Header = () => {
   return (
-    <header className="flex h-20 items-center justify-between bg-slate-400 px-4 lg:px-8">
-      <Box className="flex flex-row items-center gap-2">
+    <header className="flex h-20 items-center justify-between bg-slate-400 px-4 sm:px-8">
+      <Box className="h-full w-full landscape:w-10/12">
         <MainMenu.Portrait />
-        <h1 className="flex-shrink-0 border-slate-200 pr-2 text-2xl text-slate-800 landscape:border-r-2">
-          Cravings Fix
-        </h1>
+
         <MainMenu.Lanscape />
       </Box>
       <Box className="flex flex-row items-center gap-4">

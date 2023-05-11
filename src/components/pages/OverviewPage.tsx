@@ -6,6 +6,7 @@ import { Product } from '@/utils/ProductData'
 
 import { Carousel, ProductsBoard } from '@/components/templates'
 import { useProducts } from '@/hooks'
+import { Box } from '@chakra-ui/react'
 
 const mockCarousel = [1, 2, 3, 4]
 
@@ -31,7 +32,7 @@ export const OverviewPage = ({
   }
 
   return (
-    <main className="mx-auto flex w-full flex-col gap-8 p-4 sm:p-8 landscape:w-10/12">
+    <main className="mx-auto flex w-full flex-col items-center gap-8 p-4 sm:p-8 ">
       <Carousel
         className="aspect-video w-full overflow-hidden rounded-md"
         autoPlay
@@ -52,10 +53,12 @@ export const OverviewPage = ({
           </div>
         ))}
       </Carousel>
-      <ProductsBoard
-        products={productsData}
-        onClickItem={handleClickProductCard}
-      />
+      <Box className="landscape:w-10/12">
+        <ProductsBoard
+          products={productsData}
+          onClickItem={handleClickProductCard}
+        />
+      </Box>
     </main>
   )
 }

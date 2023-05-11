@@ -121,7 +121,7 @@ export const ProductsBoard = ({
       index < productsPerPage * currentPage,
   )
   return (
-    <Fragment>
+    <div className="flex flex-col items-center">
       <div className="flex flex-col gap-2">
         <ProductFilter
           categoryOptions={allCategories}
@@ -140,6 +140,6 @@ export const ProductsBoard = ({
           onChange={handleSelectPage}
         />
       </div>
-    </Fragment>
+    </div>
   )
 }
