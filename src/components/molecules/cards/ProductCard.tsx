@@ -14,8 +14,8 @@ export const ProductCard = ({
 }: ProductCardProps) => {
   return (
     <motion.div
-      whileHover={{ opacity: 0.4 }}
-      className="relative flex flex-col gap-2 hover:cursor-pointer"
+      className="relative flex flex-col gap-2 hover:cursor-pointer hover:opacity-40"
+      whileTap={{ scale: 0.9 }}
       onClick={() => onClick(id)}
     >
       <div className="relative aspect-square rounded-md">
