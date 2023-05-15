@@ -16,6 +16,8 @@ import {
 } from '@chakra-ui/react'
 import { MdMenu } from 'react-icons/md'
 
+import { Logo } from '@/components/atoms'
+
 const ROUTES = [
   {
     id: 'home',
@@ -35,14 +37,14 @@ const MenuPortrait = () => {
   const btnRef = useRef<any>(null)
 
   return (
-    <Box className="landscape:hidden">
+    <Box className="flex h-full flex-row items-center gap-2 landscape:hidden">
       <IconButton
         aria-label="menu"
         ref={btnRef}
         icon={<MdMenu className="text-4xl" />}
         onClick={onOpen}
       />
-      <Image alt="logo" src="/logo.png" fill className="object-contain" />
+      <Logo />
       <Drawer
         isOpen={isOpen}
         placement="left"
@@ -51,8 +53,8 @@ const MenuPortrait = () => {
       >
         <DrawerOverlay />
         <DrawerContent className="bg-slate-200">
-          <DrawerHeader className="border-b-2 border-dashed border-slate-400">
-            Cravings Fix
+          <DrawerHeader className="border-b-4 border-dashed border-slate-400">
+            <Logo />
           </DrawerHeader>
 
           <DrawerBody>
@@ -80,8 +82,8 @@ const MenuPortrait = () => {
 const MenuLandscape = () => {
   return (
     <ul className="flex h-full w-full flex-row items-center gap-2 portrait:hidden">
-      <li className="relative h-4/5 w-40 overflow-hidden rounded-md">
-        <Image alt="logo" src="/logo.png " fill className="object-obtain" />
+      <li>
+        <Logo />
       </li>
       {ROUTES.map(({ id, name, route }) => (
         <NavItem
