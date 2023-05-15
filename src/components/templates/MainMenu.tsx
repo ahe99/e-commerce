@@ -42,7 +42,7 @@ const MenuPortrait = () => {
         icon={<MdMenu className="text-4xl" />}
         onClick={onOpen}
       />
-      <Image alt="logo" src="/logo.jpg" fill className="object-contain" />
+      <Image alt="logo" src="/logo.png" fill className="object-contain" />
       <Drawer
         isOpen={isOpen}
         placement="left"
@@ -81,7 +81,7 @@ const MenuLandscape = () => {
   return (
     <ul className="flex h-full w-full flex-row items-center gap-2 portrait:hidden">
       <li className="relative h-4/5 w-40 overflow-hidden rounded-md">
-        <Image alt="logo" src="/logo.jpeg" fill className="object-cover" />
+        <Image alt="logo" src="/logo.png " fill className="object-obtain" />
       </li>
       {ROUTES.map(({ id, name, route }) => (
         <NavItem
