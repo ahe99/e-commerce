@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation'
+
 import { ProductPage } from '@/components/pages'
 
 import { API, SERVER } from '@/utils/API'
@@ -16,6 +18,12 @@ export default async function ProductRoute({
 }) {
   const prefetchProduct = await getSpecificProduct(productId)
   const prefetchRecentlyProducts = await getRecentlyViewedProducts()
+
+  const notFoundProduct = !prefetchProduct?.id
+  if (notFoundProduct) {
+    notFound()
+  }
+
   return (
     <ProductPage
       prefetchProduct={prefetchProduct}

@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation'
+
 import { OrderPage } from '@/components/pages'
 
 import { API, SERVER } from '@/utils/API'
@@ -12,5 +14,11 @@ export default async function OrderRoute({
   params: { orderId: Order['id'] }
 }) {
   const prefetchOrder = await getSpecificOrder(orderId)
+
+  const notFoundOrder = !prefetchOrder?.id
+  if (notFoundOrder) {
+    notFound()
+  }
+
   return <OrderPage prefetchOrder={prefetchOrder} />
 }
