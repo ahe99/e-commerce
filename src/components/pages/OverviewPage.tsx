@@ -1,18 +1,16 @@
 import React, { useMemo } from 'react'
 import { useRouter } from 'next/navigation'
-import Image from 'next/image'
-
-import { Product } from '@/utils/ProductData'
-
-import { Carousel, ProductsBoard } from '@/components/templates'
-import { useProducts } from '@/hooks'
 import { Box } from '@chakra-ui/react'
 
-const mockCarousel = [1, 2, 3, 4]
+import { Product, ImageType } from '@/utils/ProductData'
+
+import { BannerImage } from '@/components/atoms'
+import { Carousel, ProductsBoard } from '@/components/templates'
+import { useProducts } from '@/hooks'
 
 interface OverviewPageProps {
   prefetchProducts?: Product[]
-  prefetchBanners?: string[]
+  prefetchBanners?: ImageType[]
 }
 
 export const OverviewPage = ({
@@ -38,19 +36,14 @@ export const OverviewPage = ({
         autoPlay
         allowPan
       >
-        {prefetchBanners.map((src, index) => (
-          <div
-            key={src}
-            className="cursor-pointer overflow-hidden rounded-md bg-slate-50"
-          >
-            <Image
-              alt={src}
-              src={src}
-              fill
-              className="object-cover"
-              draggable={false}
-            />
-          </div>
+        {prefetchBanners.map((image, index) => (
+          <BannerImage
+            src={image.src}
+            blurHash={image.blurHash}
+            alt={image.src}
+            key={index}
+            className="h-full w-full"
+          />
         ))}
       </Carousel>
       <Box className="landscape:w-10/12">
