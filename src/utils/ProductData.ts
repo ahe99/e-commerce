@@ -1,7 +1,7 @@
 // import {} from '@wayne0127/mall-api-types'
 
 export type ImageType = {
-  blurHash?: string
+  blurHash: string
   src: string
 }
 
@@ -14,7 +14,7 @@ export type Product = {
   category_name: string
   createdAt: string
   updatedAt: string
-  image: ImageData
+  image: ImageType
 }
 export type CartProduct = Product & {
   quantity: number

@@ -1,6 +1,7 @@
 'use client'
 export * from './CartProductPage'
 export * from './LoginPage'
+export * from './LoadingPage'
 export * from './NotFoundPage'
 export * from './OrderPage'
 export * from './OrdersPage'

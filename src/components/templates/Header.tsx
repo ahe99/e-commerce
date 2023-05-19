@@ -15,12 +15,12 @@ import { MainMenu } from './MainMenu'
 
 export const Header = () => {
   return (
-    <header className="flex h-20 items-center justify-between bg-slate-400 px-4 sm:px-8">
+    <header className="flex h-20 w-screen items-center justify-center bg-slate-400 px-4 sm:px-8">
       <Box className="flex h-full w-full items-center justify-between landscape:w-10/12">
         <MainMenu.Portrait />
 
         <MainMenu.Lanscape />
-        <Box className="flex flex-row items-center gap-4">
+        <Box className="flex flex-shrink-0 flex-row items-center gap-4">
           <IconButton
             aria-label="shopping cart"
             icon={

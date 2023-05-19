@@ -18,6 +18,7 @@ export const BannerImage = ({
       className={`relative cursor-pointer overflow-hidden rounded-md bg-slate-50 ${className}`}
     >
       <Image
+        loading="eager"
         alt={alt}
         src={src}
         fill
