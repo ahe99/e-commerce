@@ -16,28 +16,28 @@ import { MainMenu } from './MainMenu'
 export const Header = () => {
   return (
     <header className="flex h-20 items-center justify-between bg-slate-400 px-4 sm:px-8">
-      <Box className="flex h-full w-full items-center landscape:w-10/12">
+      <Box className="flex h-full w-full items-center justify-between landscape:w-10/12">
         <MainMenu.Portrait />
 
         <MainMenu.Lanscape />
-      </Box>
-      <Box className="flex flex-row items-center gap-4">
-        <IconButton
-          aria-label="shopping cart"
-          icon={
-            <Link href="cart">
-              <MdShoppingCart className="text-4xl" />
-            </Link>
-          }
-        />
-        <Menu>
-          <MenuButton
-            as={IconButton}
-            aria-label="Profile"
-            icon={<MdPerson className="text-4xl" />}
+        <Box className="flex flex-row items-center gap-4">
+          <IconButton
+            aria-label="shopping cart"
+            icon={
+              <Link href="cart">
+                <MdShoppingCart className="text-4xl" />
+              </Link>
+            }
           />
-          <ProfileMenu.Auth />
-        </Menu>
+          <Menu>
+            <MenuButton
+              as={IconButton}
+              aria-label="Profile"
+              icon={<MdPerson className="text-4xl" />}
+            />
+            <ProfileMenu.Auth />
+          </Menu>
+        </Box>
       </Box>
     </header>
   )
