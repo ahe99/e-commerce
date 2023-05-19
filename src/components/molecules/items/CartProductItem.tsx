@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import { ProductImage } from '@/components/atoms'
 
 import { CartProduct } from '@/utils/ProductData'
 
@@ -23,7 +23,7 @@ export const CartProductItem = ({
     price,
     stock_quantity,
     quantity,
-    image,
+    image: { src, blurHash },
   },
   onChangeQuantity = () => {},
   onClick = () => {},
@@ -31,9 +31,13 @@ export const CartProductItem = ({
   return (
     <div className="flex flex-col">
       <div className="grid grid-flow-row grid-cols-3 gap-4 rounded-md">
-        <div className="relative col-span-1 aspect-square rounded-md">
-          <Image alt={name} src={image} fill className="object-contain" />
-        </div>
+        <ProductImage
+          className="col-span-1"
+          src={src}
+          blurHash={blurHash}
+          alt={name}
+        />
+
         <div className="col-span-2 flex flex-col justify-between">
           <div
             className="flex flex-col hover:cursor-pointer hover:opacity-40"

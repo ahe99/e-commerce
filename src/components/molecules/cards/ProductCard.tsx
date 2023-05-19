@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import Image from 'next/image'
+
+import { ProductImage } from '@/components/atoms'
 
 import { Product } from '@/utils/ProductData'
 
@@ -9,7 +10,12 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({
-  product: { id, name = '', price, image },
+  product: {
+    id,
+    name = '',
+    price,
+    image: { src, blurHash },
+  },
   onClick = () => {},
 }: ProductCardProps) => {
   return (
@@ -18,9 +24,8 @@ export const ProductCard = ({
       whileTap={{ scale: 0.9 }}
       onClick={() => onClick(id)}
     >
-      <div className="relative aspect-square rounded-md">
-        <Image alt={name} src={image} fill className="object-contain" />
-      </div>
+      <ProductImage src={src} blurHash={blurHash} alt={name} />
+
       <div className="flex flex-col">
         <div className="overflow-hidden text-ellipsis whitespace-nowrap font-bold">
           {name}
