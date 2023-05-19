@@ -21,6 +21,7 @@ export const ProductImage = ({
         src={src}
         fill
         loading="lazy"
+        sizes="100% 100%"
         className="object-contain"
         placeholder={hasBlurHash ? 'blur' : 'empty'}
         blurDataURL={hasBlurHash ? blurHash : ''}

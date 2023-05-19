@@ -4,11 +4,7 @@ import { Button } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
 
 import { Product } from '@/utils/ProductData'
-import {
-  useProducts,
-  useRecentlyViewedProducts,
-  useCartProducts,
-} from '@/hooks'
+import { useRecentlyViewedProducts, useCartProducts } from '@/hooks'
 
 import { Divider } from '@/components/atoms'
 import { QuantitySelector, ProductProfileCard } from '@/components/molecules'
@@ -31,11 +27,6 @@ export const ProductPage = ({
   const recentlyViewedProducts = useRecentlyViewedProducts(
     prefetchRecentlyProducts,
   )
-  const products = useProducts()
-
-  const productsData = useMemo(() => {
-    return products.query.data ?? []
-  }, [products.query.data])
 
   const recentlyViewedProductsData = useMemo(
     () => recentlyViewedProducts.query.data ?? [],

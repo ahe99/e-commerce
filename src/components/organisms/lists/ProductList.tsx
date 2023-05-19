@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion'
-
 import { ProductCard } from '@/components/molecules'
 
 import { Product } from '@/utils/ProductData'
@@ -14,19 +12,10 @@ export const ProductList = ({
   onClickItem = () => {},
 }: ProductListProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      exit={{
-        opacity: 1,
-        y: 0,
-      }}
-      transition={{ ease: 'easeInOut' }}
-      className="grid grid-flow-row grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3"
-    >
+    <div className="grid grid-flow-row grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} onClick={onClickItem} />
       ))}
-    </motion.div>
+    </div>
   )
 }
