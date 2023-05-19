@@ -121,8 +121,8 @@ export const ProductsBoard = ({
       index < productsPerPage * currentPage,
   )
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex flex-col gap-2">
+    <div className="flex w-full flex-col items-center">
+      <div className="flex w-full flex-col gap-2">
         <ProductFilter
           categoryOptions={allCategories}
           selectedOptions={filter.category}
