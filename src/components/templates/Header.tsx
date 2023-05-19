@@ -16,7 +16,7 @@ import { MainMenu } from './MainMenu'
 export const Header = () => {
   return (
     <header className="flex h-20 w-screen items-center justify-center bg-slate-400 px-4 sm:px-8">
-      <Box className="flex h-full w-full items-center justify-between landscape:w-10/12">
+      <Box className="flex h-full w-full items-center justify-between">
         <MainMenu.Portrait />
 
         <MainMenu.Lanscape />

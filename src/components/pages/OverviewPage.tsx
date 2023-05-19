@@ -46,12 +46,10 @@ export const OverviewPage = ({
           />
         ))}
       </Carousel>
-      <Box className="landscape:w-10/12">
-        <ProductsBoard
-          products={productsData}
-          onClickItem={handleClickProductCard}
-        />
-      </Box>
+      <ProductsBoard
+        products={productsData}
+        onClickItem={handleClickProductCard}
+      />
     </main>
   )
 }
