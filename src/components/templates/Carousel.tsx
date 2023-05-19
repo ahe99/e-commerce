@@ -92,7 +92,6 @@ export const Carousel = ({
     moverToSpecificPage(selectedPage)
   }
 
-  const displayContent = childrenArray[currentPage]
   return (
     <div className={`relative ${className}`} style={style}>
       <AnimatePresence>
@@ -105,7 +104,17 @@ export const Carousel = ({
           transition={{ ease: 'easeInOut' }}
           onPanEnd={handlePan}
         >
-          {displayContent}
+          {childrenArray.map((_children, index) => (
+            <div
+              key={index}
+              className="absolute h-full w-full"
+              style={{
+                left: `calc(100%*${index - currentPage})`,
+              }}
+            >
+              {_children}
+            </div>
+          ))}
         </motion.div>
         <div className="absolute bottom-2 right-2 flex flex-row items-end gap-2">
           {childrenArray.map((_, index) => (
