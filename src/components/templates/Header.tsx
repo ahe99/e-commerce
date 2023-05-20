@@ -23,9 +23,9 @@ export const Header = () => {
   }, [])
 
   const updateVisibility = (scrollVelocity: number) => {
-    if (scrollVelocity < -200) {
+    if (scrollVelocity < -600) {
       setIsHidden(false)
-    } else if (scrollVelocity > 200) {
+    } else if (scrollVelocity > 600) {
       setIsHidden(true)
     }
   }

@@ -19,9 +19,9 @@ export const ProductProfileCard = ({
   },
 }: ProductProfileCardProps) => {
   return (
-    <div className="grid grid-flow-row grid-cols-4 gap-4">
+    <div className="grid grid-flow-row grid-cols-5 gap-4 sm:grid-cols-4">
       <ProductImage
-        className="col-span-1"
+        className="col-span-2 sm:col-span-1"
         src={src}
         blurHash={blurHash}
         alt={name}

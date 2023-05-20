@@ -43,7 +43,9 @@ const MenuPortrait = () => {
         icon={<MdMenu className="text-4xl" />}
         onClick={onOpen}
       />
-      <Logo />
+      <Link className="cursor-pointer" href={'/'}>
+        <Logo />
+      </Link>
       <Drawer
         isOpen={isOpen}
         placement="left"
@@ -82,7 +84,9 @@ const MenuLandscape = () => {
   return (
     <ul className="flex h-full w-full flex-row items-center gap-2 portrait:hidden">
       <li>
-        <Logo />
+        <Link className="cursor-pointer" href={'/'}>
+          <Logo />
+        </Link>
       </li>
       {ROUTES.map(({ id, name, route }) => (
         <NavItem
