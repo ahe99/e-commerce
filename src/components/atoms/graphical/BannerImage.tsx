@@ -18,13 +18,13 @@ export const BannerImage = ({
       className={`relative cursor-pointer overflow-hidden rounded-md bg-slate-50 ${className}`}
     >
       <Image
-        loading="eager"
         alt={alt}
         src={src}
         fill
         className="object-cover"
         draggable={false}
         sizes="100% 100%"
+        priority={true}
         placeholder={hasBlurHash ? 'blur' : 'empty'}
         blurDataURL={hasBlurHash ? blurHash : ''}
       />
