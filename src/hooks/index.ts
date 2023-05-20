@@ -1,4 +1,5 @@
 export * from './useAPI'
+export * from './useBanners'
 export * from './useCartProducts'
 export * from './useOrders'
 export * from './useProducts'

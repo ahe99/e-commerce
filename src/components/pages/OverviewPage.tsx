@@ -1,12 +1,11 @@
 import React, { useMemo } from 'react'
 import { useRouter } from 'next/navigation'
-import { Box } from '@chakra-ui/react'
 
 import { Product, ImageType } from '@/utils/ProductData'
 
 import { BannerImage } from '@/components/atoms'
 import { Carousel, ProductsBoard } from '@/components/templates'
-import { useProducts } from '@/hooks'
+import { useProducts, useBanners } from '@/hooks'
 
 interface OverviewPageProps {
   prefetchProducts?: Product[]
@@ -20,10 +19,15 @@ export const OverviewPage = ({
   const router = useRouter()
 
   const products = useProducts(prefetchProducts)
+  const banners = useBanners(prefetchBanners)
 
   const productsData = useMemo(() => {
     return products.query.data ?? []
   }, [products.query.data])
+
+  const bannersData = useMemo(() => {
+    return banners.query.data ?? []
+  }, [banners.query.data])
 
   const handleClickProductCard = async (productId: Product['id']) => {
     router.push(`products/${productId}`)
@@ -36,7 +40,7 @@ export const OverviewPage = ({
         autoPlay
         allowPan
       >
-        {prefetchBanners.map((image, index) => (
+        {bannersData.map((image, index) => (
           <BannerImage
             src={image.src}
             blurHash={image.blurHash}
