@@ -9,7 +9,7 @@ import {
 } from 'react'
 import { AnimatePresence, PanInfo, motion } from 'framer-motion'
 
-const DEFUALT_AUTOPLAY_TIME = 2500
+const DEFUALT_AUTOPLAY_TIME = 3000
 const X_OFFSET = 100
 
 export const Carousel = ({
