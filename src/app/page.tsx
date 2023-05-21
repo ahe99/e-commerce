@@ -7,7 +7,7 @@ const getProducts = () => SERVER.request<Product[]>(API.routes.products.list)
 
 const getBanners = () => SERVER.request<ImageType[]>(API.routes.banners.list)
 
-export default async function verview() {
+export default async function overview() {
   const prefetchProducts = await getProducts()
   const prefetchBanners = await getBanners()
 
