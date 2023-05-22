@@ -1,14 +1,13 @@
 import { MdSearch } from 'react-icons/md'
 import {
   Box,
-  Input,
-  Divider,
+  // Input,
   Select,
   InputGroup,
   InputLeftElement,
 } from '@chakra-ui/react'
 
-import { Checkbox } from '@/components/atoms'
+import { Checkbox, Input } from '@/components/atoms'
 
 export const SORT_BASE_OPTIONS = [
   'ASCEND_CREATE_TIME',
@@ -55,22 +54,18 @@ export const ProductFilter = ({
           ))}
         </Box>
         <Box className="flex flex-shrink-0 flex-row items-center justify-between">
-          <InputGroup variant="filled" className="rounded-md border-brown-600">
-            <InputLeftElement pointerEvents="none">
-              <MdSearch />
-            </InputLeftElement>
-            <Input
-              type="text"
-              onChange={(e) => onChangeSearchText(e.target.value)}
-            />
-          </InputGroup>
+          <Input
+            leftIcon={<MdSearch />}
+            onChange={(e) => onChangeSearchText(e.target.value)}
+            type="text"
+          />
         </Box>
       </Box>
       <Box className="w-max self-end">
         <Select
           variant="outline"
           size="md"
-          className="rounded-md border-2 border-brown-600"
+          className="rounded-md border-2 border-brown-600 focus:border-4 focus:border-brown-900"
           onChange={(e) => onChangeSortBase(e.target.value as SortBaseType)}
           placeholder="sort by"
         >

@@ -33,7 +33,7 @@ export const Header = () => {
   return (
     <Fragment>
       <header
-        className={`${isHidden ? '-tranbrown-y-20' : ''} 
+        className={`${isHidden ? '-translate-y-20' : ''} 
       fixed
       z-50
       flex h-20 w-screen items-center justify-center bg-primary-300 px-4 duration-200 ease-in-out sm:px-8`}
@@ -47,6 +47,7 @@ export const Header = () => {
               aria-label="shopping cart"
               color="brown.800"
               colorScheme="brown"
+              bg=""
               _hover={{ bg: 'brown.100' }}
               icon={
                 <Link href="cart">
@@ -59,6 +60,7 @@ export const Header = () => {
                 as={IconButton}
                 color="brown.800"
                 colorScheme="brown"
+                bg=""
                 _hover={{ bg: 'brown.100' }}
                 aria-label="Profile"
                 icon={<MdPerson className="text-4xl" />}
@@ -76,27 +78,30 @@ export const Header = () => {
 const ProfileMenu = {
   Auth: () => (
     <MenuList>
-      <MenuItem>
+      <MenuItem className="font-bold text-brown-800 hover:bg-brown-100">
         <Link className="h-full w-full" href="/my-profile">
           Profile
         </Link>
       </MenuItem>
-      <MenuItem>
+      <MenuItem className="font-bold text-brown-800 hover:bg-brown-100">
         <Link className="h-full w-full" href="/orders">
           History Orders
         </Link>
       </MenuItem>
-      <MenuItem className="h-full w-full" onClick={() => console.log('logout')}>
+      <MenuItem
+        className="h-full w-full font-bold text-red-400 hover:bg-red-100"
+        onClick={() => console.log('logout')}
+      >
         Logout
       </MenuItem>
     </MenuList>
   ),
   Default: () => (
     <MenuList>
-      <MenuItem>
+      <MenuItem className="font-bold text-brown-800 hover:bg-brown-100">
         <Link href="/login">Login</Link>
       </MenuItem>
-      <MenuItem>
+      <MenuItem className="font-bold text-brown-800 hover:bg-brown-100">
         <Link href="/register">Register</Link>
       </MenuItem>
     </MenuList>

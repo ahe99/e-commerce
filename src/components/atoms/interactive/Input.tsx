@@ -37,7 +37,7 @@ export const Input = ({
         {leftIcon && <InputLeftElement>{leftIcon}</InputLeftElement>}
         <InputBase
           id={props.name}
-          className="border-2 border-brown-600"
+          className="border-2 border-brown-600 outline-brown-600 focus:border-4 focus:border-brown-900"
           disabled={disabled}
           {...props}
         />

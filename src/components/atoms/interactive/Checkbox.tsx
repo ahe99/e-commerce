@@ -12,7 +12,7 @@ export const Checkbox = ({
     <div className="flex flex-row items-center gap-1">
       <div
         className={`h-4 w-4 rounded-sm border-2 border-brown-800 hover:cursor-pointer ${
-          isChecked ? 'bg-brown-800' : 'bg-transparent'
+          isChecked ? 'bg-brown-200' : 'bg-transparent'
         }`}
         onClick={onClick}
       />

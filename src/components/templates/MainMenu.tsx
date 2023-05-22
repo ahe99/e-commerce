@@ -42,6 +42,7 @@ const MenuPortrait = () => {
         ref={btnRef}
         color="brown.800"
         colorScheme="brown"
+        bg=""
         _hover={{ bg: 'brown.100' }}
         icon={<MdMenu className="text-4xl" />}
         onClick={onOpen}
