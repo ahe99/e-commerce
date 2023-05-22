@@ -5,6 +5,7 @@ import { Product } from '@/utils/ProductData'
 interface ProductProfileCardProps {
   product: Product
   quantity?: number
+  className?: string
 }
 
 //todo: find a better naming
@@ -17,9 +18,12 @@ export const ProductProfileCard = ({
     price,
     image: { src, blurHash },
   },
+  className = '',
 }: ProductProfileCardProps) => {
   return (
-    <div className="grid grid-flow-row grid-cols-5 gap-4 sm:grid-cols-4">
+    <div
+      className={`${className} grid grid-flow-row grid-cols-5 gap-4 sm:grid-cols-4`}
+    >
       <ProductImage
         className="col-span-2 sm:col-span-1"
         src={src}

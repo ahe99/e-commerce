@@ -23,7 +23,7 @@ export const OrderPage = ({
         <Divider />
         {products.map((product) => (
           <div key={product.id} className="flex flex-row">
-            <ProductProfileCard product={product} />
+            <ProductProfileCard className="flex-1" product={product} />
             <div className="flex-shrink-0 self-start font-bold">{`x${product.quantity}`}</div>
           </div>
         ))}
