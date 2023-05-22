@@ -40,6 +40,9 @@ const MenuPortrait = () => {
       <IconButton
         aria-label="menu"
         ref={btnRef}
+        color="brown.800"
+        colorScheme="brown"
+        _hover={{ bg: 'brown.100' }}
         icon={<MdMenu className="text-4xl" />}
         onClick={onOpen}
       />
@@ -53,19 +56,21 @@ const MenuPortrait = () => {
         finalFocusRef={btnRef}
       >
         <DrawerOverlay />
-        <DrawerContent className="bg-slate-200">
-          <DrawerHeader className="border-b-4 border-dashed border-slate-400">
-            <Logo />
+        <DrawerContent>
+          <DrawerHeader className="border-b-4 border-dashed border-brown-800">
+            <Link className="cursor-pointer" href={'/'}>
+              <Logo />
+            </Link>
           </DrawerHeader>
 
           <DrawerBody>
-            <ul className="flex w-full flex-col">
+            <ul className="flex w-full flex-col gap-2">
               {ROUTES.map(({ id, name, route }) => (
                 <NavItem
                   key={id}
                   name={name}
                   route={route}
-                  className="h-full w-full py-4 text-lg"
+                  className="h-full w-full rounded-md p-4 text-lg"
                   onClick={onClose}
                 />
               ))}
@@ -73,7 +78,9 @@ const MenuPortrait = () => {
           </DrawerBody>
 
           <DrawerFooter>
-            <Button className="w-full hover:bg-slate-400">Login</Button>
+            <Button className="w-full font-bold text-brown-800 duration-300 hover:bg-brown-200">
+              Login
+            </Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
@@ -114,7 +121,7 @@ const NavItem = ({
   return (
     <li>
       <Link
-        className={`${className} inline-block h-full w-full text-slate-800 hover:cursor-pointer hover:bg-slate-200 `}
+        className={`${className} inline-block h-full w-full font-bold text-brown-800 duration-300 hover:cursor-pointer hover:bg-brown-100`}
         href={route}
         onClick={onClick}
       >

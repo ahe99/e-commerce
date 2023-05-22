@@ -36,7 +36,7 @@ export const Header = () => {
         className={`${isHidden ? '-translate-y-20' : ''} 
       fixed
       z-50
-      flex h-20 w-screen items-center justify-center bg-slate-400 px-4 duration-200 ease-in-out sm:px-8`}
+      flex h-20 w-screen items-center justify-center bg-primary-300 px-4 duration-200 ease-in-out sm:px-8`}
       >
         <Box className="flex h-full w-full items-center justify-between">
           <MainMenu.Portrait />
@@ -45,6 +45,9 @@ export const Header = () => {
           <Box className="flex flex-shrink-0 flex-row items-center gap-4">
             <IconButton
               aria-label="shopping cart"
+              color="brown.800"
+              colorScheme="brown"
+              _hover={{ bg: 'brown.100' }}
               icon={
                 <Link href="cart">
                   <MdShoppingCart className="text-4xl" />
@@ -54,6 +57,9 @@ export const Header = () => {
             <Menu>
               <MenuButton
                 as={IconButton}
+                color="brown.800"
+                colorScheme="brown"
+                _hover={{ bg: 'brown.100' }}
                 aria-label="Profile"
                 icon={<MdPerson className="text-4xl" />}
               />

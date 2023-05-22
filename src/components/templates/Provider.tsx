@@ -5,13 +5,15 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { CacheProvider } from '@chakra-ui/next-js'
 import { ChakraProvider } from '@chakra-ui/react'
 
+import { theme } from '@/utils/theme'
+
 const queryClient = new QueryClient()
 
 export const Provider = ({ children }: PropsWithChildren) => {
   return (
     <QueryClientProvider client={queryClient}>
       <CacheProvider>
-        <ChakraProvider>
+        <ChakraProvider theme={theme} cssVarsRoot="body">
           {children}
           <ReactQueryDevtools initialIsOpen={false} />
         </ChakraProvider>
