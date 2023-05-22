@@ -1,6 +1,3 @@
-'use client'
-import { MdDone } from 'react-icons/md'
-
 interface CheckboxProps {
   label?: string
   onClick?: () => void
@@ -14,8 +11,8 @@ export const Checkbox = ({
   return (
     <div className="flex flex-row items-center gap-1">
       <div
-        className={`h-4 w-4 rounded-sm border-2 border-slate-600 hover:cursor-pointer ${
-          isChecked ? 'bg-slate-400' : 'bg-transparent'
+        className={`h-4 w-4 rounded-sm border-2 border-brown-800 hover:cursor-pointer ${
+          isChecked ? 'bg-brown-400' : 'bg-transparent'
         }`}
         onClick={onClick}
       />

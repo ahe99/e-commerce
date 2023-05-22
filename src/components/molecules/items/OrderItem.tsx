@@ -14,7 +14,7 @@ export const OrderItem = ({
 }: OrderItemProps) => {
   return (
     <div
-      className="flex flex-col gap-2 rounded-md border-4 border-dashed border-slate-400 bg-white p-4 hover:cursor-pointer hover:opacity-40"
+      className="flex flex-col gap-2 rounded-md border-4 border-dashed border-brown-400 bg-white p-4 hover:cursor-pointer hover:opacity-40"
       onClick={() => onClick(id)}
     >
       <div className="flex flex-row justify-between font-bold">

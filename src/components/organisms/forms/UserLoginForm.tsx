@@ -100,7 +100,7 @@ export const UserLoginForm = ({ onSubmit }: UserLoginFormProps) => {
         />
         <Button
           disabled={formState.isSubmitting}
-          className="hover:text-border-slate-800 bg-slate-800 text-base text-slate-200 hover:bg-slate-200"
+          className="hover:text-border-brown-800 bg-brown-800 text-base text-brown-200 hover:bg-brown-200"
           type="submit"
           isLoading={formState.isSubmitting}
         >

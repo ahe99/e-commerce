@@ -15,7 +15,7 @@ export const BannerImage = ({
   const hasBlurHash = !!blurHash
   return (
     <div
-      className={`relative cursor-pointer overflow-hidden rounded-md bg-slate-50 ${className}`}
+      className={`relative cursor-pointer overflow-hidden rounded-md bg-brown-50 ${className}`}
     >
       <Image
         alt={alt}

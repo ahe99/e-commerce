@@ -29,9 +29,9 @@ export const ProductProfileCard = ({
 
       <div className="col-span-3 flex flex-col">
         <div className="flex flex-col">
-          <div className="text-xl font-bold text-slate-800">{name}</div>
-          <div className="italic text-slate-400">{category_name}</div>
-          <div className="text-slate-600">{description}</div>
+          <div className="text-xl font-bold text-brown-800">{name}</div>
+          <div className="italic text-brown-400">{category_name}</div>
+          <div className="text-brown-600">{description}</div>
         </div>
         <div>{`$${price}`}</div>
       </div>

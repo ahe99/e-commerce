@@ -33,7 +33,7 @@ export const Header = () => {
   return (
     <Fragment>
       <header
-        className={`${isHidden ? '-translate-y-20' : ''} 
+        className={`${isHidden ? '-tranbrown-y-20' : ''} 
       fixed
       z-50
       flex h-20 w-screen items-center justify-center bg-primary-300 px-4 duration-200 ease-in-out sm:px-8`}

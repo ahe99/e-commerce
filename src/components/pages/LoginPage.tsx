@@ -18,10 +18,10 @@ export const LoginPage = () => {
         <Box className="text-2xl">LOGIN</Box>
         <UserLoginForm onSubmit={login} />
       </Box>
-      <Box className="flex h-full flex-col gap-8 bg-slate-300 py-40 px-8">
+      <Box className="flex h-full flex-col gap-8 bg-brown-300 px-8 py-40">
         <Box className="text-2xl font-bold">CREATE AN ACCOUNT</Box>
         register for free!
-        <Button className="w-max bg-slate-800 text-slate-200">
+        <Button className="w-max bg-brown-800 text-brown-200">
           CREATE AN ACCOUNT
         </Button>
       </Box>

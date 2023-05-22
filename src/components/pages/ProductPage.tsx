@@ -62,7 +62,7 @@ export const ProductPage = ({
 
         <Button
           variant="outline"
-          className="flex-1 border-2 border-slate-600"
+          className="flex-1 border-2 border-brown-600"
           leftIcon={<MdShoppingCart />}
           onClick={handleAddToCart}
         >

@@ -66,7 +66,7 @@ export const CartProductPage = ({
         </div>
         <Button
           variant="outline"
-          className="w-max items-center self-end border-2 border-slate-800 text-slate-800"
+          className="w-max items-center self-end border-2 border-brown-800 text-brown-800"
         >
           Checkout
           <MdArrowRight className="text-xl" />
