@@ -45,7 +45,7 @@ const ClickableText = ({
   return (
     <div
       className={`rounded-md px-4 py-2 hover:cursor-pointer hover:bg-brown-400 hover:underline ${
-        isFoucsed ? 'bg-brown-600 text-brown-200' : 'text-brown-600'
+        isFoucsed ? 'bg-brown-800 text-brown-200' : 'text-brown-800'
       }`}
       onClick={onClick}
     >

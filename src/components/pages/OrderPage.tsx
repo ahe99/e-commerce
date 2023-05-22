@@ -15,7 +15,7 @@ export const OrderPage = ({
     <main className="mx-auto flex w-full flex-col items-stretch p-4 sm:p-8 landscape:w-10/12">
       <h1 className="mb-8 text-3xl">Order Detail</h1>
 
-      <div className="flex flex-col gap-4 rounded-md border-4 border-dashed border-brown-400 p-4">
+      <div className="flex flex-col gap-4 rounded-md border-4 border-dashed border-brown-800 p-4">
         <div className="flex flex-row justify-between text-xl font-bold">
           <div>{`Id: ${id}`}</div>
           <div>{dayjs(createdAt).format('YYYY-MM-DD HH:mm:ss')}</div>

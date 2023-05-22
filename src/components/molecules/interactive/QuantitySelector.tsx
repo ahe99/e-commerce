@@ -33,7 +33,7 @@ export const QuantitySelector = ({
   return (
     <Input
       variant="outline"
-      className="border-2 border-brown-600"
+      className="border-2"
       value={value}
       onChange={(e) => handleDirectlyInput(Number(e.target.value))}
       leftIcon={

@@ -43,9 +43,9 @@ export const CartProductItem = ({
             className="flex flex-col hover:cursor-pointer hover:opacity-40"
             onClick={() => onClick(id)}
           >
-            <div className="text-xl font-bold text-brown-800 ">{name}</div>
-            <div className="italic text-brown-400">{category_name}</div>
-            <div className="line-clamp-2 text-brown-600">{description}</div>
+            <div className="text-xl font-bold">{name}</div>
+            <div className="italic text-gray-400">{category_name}</div>
+            <div className="line-clamp-2">{description}</div>
           </div>
           <div className="flex flex-col">
             <div className="flex-shrink-0 text-lg font-bold">{`$${price}`}</div>
