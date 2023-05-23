@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useLayoutEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { MdShoppingCart } from 'react-icons/md'
 import { Button } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
@@ -28,15 +28,11 @@ export const ProductPage = ({
     prefetchRecentlyProducts,
   )
 
-  const recentlyViewedProductsData = useMemo(
-    () => recentlyViewedProducts.query.data ?? [],
-    [recentlyViewedProducts.query.data],
-  )
-
-  useLayoutEffect(() => {
-    //add product to recently view whenever the page is entered
-    recentlyViewedProducts.create.mutate(prefetchProduct)
-  }, [])
+  useEffect(() => {
+    if (prefetchProduct.id) {
+      recentlyViewedProducts.create.mutateAsync(prefetchProduct)
+    }
+  }, [prefetchProduct.id])
 
   const handleAddToCart = async () => {
     await cart.create.mutateAsync({ ...prefetchProduct, quantity })
@@ -47,7 +43,7 @@ export const ProductPage = ({
   }
 
   return (
-    <main className="mx-auto flex w-full flex-col gap-8 p-4 sm:p-8 landscape:w-10/12">
+    <main className="mx-auto flex w-full flex-col gap-8 p-4 sm:p-8">
       <ProductProfileCard product={prefetchProduct} />
 
       <div className="flex w-2/3 flex-row flex-wrap items-end gap-2 self-end">
@@ -72,7 +68,7 @@ export const ProductPage = ({
       <Divider />
       <div className="text-2xl">Recently viewed</div>
       <ProductList
-        products={recentlyViewedProductsData}
+        products={prefetchRecentlyProducts}
         onClickItem={handleClickProductCard}
       />
     </main>

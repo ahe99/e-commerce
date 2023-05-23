@@ -14,7 +14,13 @@ export const NotFoundPage = () => {
   return (
     <main className="flex w-full flex-col items-center bg-white p-4 pb-4 sm:p-8">
       <Box className="relative aspect-square w-3/5">
-        <Image alt="404" src="/404.jpg" fill className="object-contain" />
+        <Image
+          alt="404"
+          src="/404.jpg"
+          fill
+          className="object-contain"
+          priority={true}
+        />
       </Box>
       <Button
         onClick={handleGoHome}

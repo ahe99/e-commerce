@@ -12,7 +12,7 @@ export const ProductList = ({
   onClickItem = () => {},
 }: ProductListProps) => {
   return (
-    <div className="grid grid-flow-row grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-4">
+    <div className="grid grid-flow-row grid-cols-2 gap-4 sm:grid-cols-3 ">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} onClick={onClickItem} />
       ))}

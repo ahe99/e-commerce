@@ -5,6 +5,8 @@ import { ProductPage } from '@/components/pages'
 import { API, SERVER } from '@/utils/API'
 import { Product } from '@/utils/ProductData'
 
+const MAX_DISPLAY_QUANTITY = 6
+
 const getSpecificProduct = (productId: Product['id']) =>
   SERVER.request<Product>(API.routes.products.data(productId))
 
@@ -18,6 +20,10 @@ export default async function ProductRoute({
 }) {
   const prefetchProduct = await getSpecificProduct(productId)
   const prefetchRecentlyProducts = await getRecentlyViewedProducts()
+  const reversedRecentlyProducts = prefetchRecentlyProducts.reverse()
+  const filteredRecentlyProducts = reversedRecentlyProducts.filter(
+    (_, index) => index < MAX_DISPLAY_QUANTITY,
+  )
 
   const notFoundProduct = !prefetchProduct?.id
   if (notFoundProduct) {
@@ -27,7 +33,7 @@ export default async function ProductRoute({
   return (
     <ProductPage
       prefetchProduct={prefetchProduct}
-      prefetchRecentlyProducts={prefetchRecentlyProducts}
+      prefetchRecentlyProducts={filteredRecentlyProducts}
     />
   )
 }

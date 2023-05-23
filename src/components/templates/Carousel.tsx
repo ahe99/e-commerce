@@ -97,7 +97,7 @@ export const Carousel = ({
       <AnimatePresence>
         <motion.div
           key={currentPage}
-          className="absolute h-full w-full"
+          className="absolute h-full w-full overflow-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 1 }}
