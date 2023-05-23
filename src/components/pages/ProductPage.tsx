@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useEffect } from 'react'
 import { MdShoppingCart } from 'react-icons/md'
 import { Button } from '@chakra-ui/react'
