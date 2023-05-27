@@ -7,6 +7,7 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
   font-size: 16px;
+  font-family: var(--font-mono);
 }
 
 * {
@@ -50,5 +51,3 @@ body {
 .respondive-width {
   @apply w-full md:w-10/12;
 }
-
-/* gap-8  */
