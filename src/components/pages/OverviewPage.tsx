@@ -34,7 +34,7 @@ export const OverviewPage = ({
   }
 
   return (
-    <main className="mx-auto flex w-full flex-col items-center gap-8 p-4 sm:p-8 ">
+    <main className="page-container gap-4">
       <Carousel
         className="aspect-video w-full overflow-hidden rounded-md"
         autoPlay

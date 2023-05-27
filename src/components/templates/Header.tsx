@@ -16,12 +16,12 @@ import { MainMenu } from './MainMenu'
 export const Header = () => {
   return (
     <Fragment>
-      <header className="fixed z-50 flex h-20 w-screen items-center justify-center bg-primary-300 px-4 duration-200 ease-in-out sm:px-8">
-        <Box className="flex h-full w-full items-center justify-between">
+      <header className="header-container">
+        <Box className="header-content">
           <MainMenu.Portrait />
 
           <MainMenu.Lanscape />
-          <Box className="flex flex-shrink-0 flex-row items-center gap-4">
+          <Box className="grid grid-cols-2 gap-4">
             <IconButton
               aria-label="shopping cart"
               color="brown.800"

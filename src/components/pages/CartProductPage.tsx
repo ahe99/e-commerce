@@ -51,7 +51,7 @@ export const CartProductPage = ({
     .map(({ price }) => price)
     .reduce((previousValue, currentValue) => previousValue + currentValue, 0)
   return (
-    <main className="mx-auto flex w-full flex-col items-stretch p-4 sm:p-8 landscape:w-10/12">
+    <main className="page-container">
       <h1 className="mb-8 text-3xl">Shopping Cart</h1>
       <CartProductList
         cartProducts={cartProductsData}

@@ -24,7 +24,7 @@ export const ProductsPage = ({ prefetchProducts = [] }: ProductsPageProps) => {
   }
 
   return (
-    <main className="mx-auto flex w-full flex-col items-stretch p-4 sm:p-8">
+    <main className="page-container">
       <h1 className="mb-8 text-3xl">All Products</h1>
       <ProductsBoard
         products={productsData}

@@ -24,6 +24,7 @@ export default function RootLayout({
       <body>
         <Provider>
           <Header />
+
           {children}
           <Footer />
         </Provider>

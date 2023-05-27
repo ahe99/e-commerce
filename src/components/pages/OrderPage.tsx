@@ -12,7 +12,7 @@ export const OrderPage = ({
   prefetchOrder: { id, createdAt, totalPrice, products = [] },
 }: OrderPageProps) => {
   return (
-    <main className="mx-auto flex w-full flex-col items-stretch p-4 sm:p-8 landscape:w-10/12">
+    <main className="page-container">
       <h1 className="mb-8 text-3xl">Order Detail</h1>
 
       <div className="flex flex-col gap-4 rounded-md border-4 border-dashed border-brown-800 p-4">

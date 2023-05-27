@@ -32,8 +32,23 @@ body {
   overflow-x: hidden;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-} */
+.page-container {
+  @apply respondive-width mx-auto flex flex-col p-4 sm:p-8;
+}
+.header-container {
+  @apply fixed z-50 flex h-20 w-screen items-center justify-center bg-primary-300;
+}
+.header-content {
+  @apply respondive-width flex h-full items-center justify-between px-4 sm:px-8;
+}
+.footer-container {
+  @apply flex h-20 w-screen items-center justify-center bg-brown-600;
+}
+.footer-content {
+  @apply respondive-width flex h-full items-center px-4 sm:px-8;
+}
+.respondive-width {
+  @apply w-full md:w-10/12;
+}
+
+/* gap-8  */
