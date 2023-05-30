@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['cdn.glitch.global'],
+    domains: ['i.imgur.com', 'cdn.glitch.global'],
   },
 }
 
