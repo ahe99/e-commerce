@@ -14,7 +14,7 @@ export const ProductCard = ({
     id,
     name = '',
     price,
-    image: { src, blurHash },
+    image: { src },
   },
   onClick = () => {},
 }: ProductCardProps) => {
@@ -24,7 +24,7 @@ export const ProductCard = ({
       whileTap={{ scale: 0.9 }}
       onClick={() => onClick(id)}
     >
-      <ProductImage src={src} blurHash={blurHash} alt={name} />
+      <ProductImage src={src} alt={name} />
 
       <div className="flex flex-col">
         <div className="overflow-hidden text-ellipsis whitespace-nowrap font-bold">

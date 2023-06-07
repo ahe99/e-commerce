@@ -3,7 +3,7 @@ import { useQuery, useQueryClient, QueryFunction } from '@tanstack/react-query'
 import { useAPI } from './useAPI'
 
 import { API } from '@/utils/API'
-import { ImageType } from '@/utils/ProductData'
+import { ImageType } from '@/utils/Image'
 
 type BannerType = ImageType
 

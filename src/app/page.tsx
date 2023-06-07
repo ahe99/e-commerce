@@ -1,5 +1,6 @@
 import { API, SERVER } from '@/utils/API'
-import { Product, ImageType } from '@/utils/ProductData'
+import { Product } from '@/utils/ProductData'
+import { ImageType } from '@/utils/Image'
 
 import { OverviewPage } from '@/components/pages'
 

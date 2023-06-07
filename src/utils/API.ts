@@ -31,11 +31,11 @@ export const API = {
       register: '/users',
     },
     products: {
-      list: '/products',
-      data: (param: string | number) => `/products/${param ?? ''}`,
-      create: '/products',
-      update: (param: string | number) => `/products/${param ?? ''}`,
-      delete: (param: string | number) => `/products/${param ?? ''}`,
+      list: '/foods',
+      data: (param: string | number) => `/foods/${param ?? ''}`,
+      create: '/foods',
+      update: (param: string | number) => `/foods/${param ?? ''}`,
+      delete: (param: string | number) => `/foods/${param ?? ''}`,
     },
     recently: {
       list: '/recently',

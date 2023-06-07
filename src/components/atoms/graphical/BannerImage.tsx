@@ -2,17 +2,14 @@ import Image from 'next/image'
 
 interface BannerImage {
   src: string
-  blurHash?: string
   className?: string
   alt: string
 }
 export const BannerImage = ({
   src = '',
-  blurHash = '',
   alt = '',
   className = '',
 }: BannerImage) => {
-  const hasBlurHash = !!blurHash
   return (
     <div
       className={`relative cursor-pointer overflow-hidden rounded-md bg-brown-50 ${className}`}
@@ -25,8 +22,6 @@ export const BannerImage = ({
         draggable={false}
         sizes="100% 100%"
         priority={true}
-        placeholder={hasBlurHash ? 'blur' : 'empty'}
-        blurDataURL={hasBlurHash ? blurHash : ''}
       />
     </div>
   )
