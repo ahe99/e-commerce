@@ -3,25 +3,20 @@ import { useQuery, useQueryClient, QueryFunction } from '@tanstack/react-query'
 import { useAPI } from './useAPI'
 
 import { API } from '@/utils/API'
-import { ImageType } from '@/utils/Image'
-
-type BannerType = ImageType
+import { Banner } from '@/utils/BannerData'
 
 /**
  * @description fill the type after the type is defined
  */
-export const useBanners = (initialData: BannerType[] = []) => {
+export const useBanners = (initialData: Banner[] = []) => {
   const queryClient = useQueryClient()
 
   const { request } = useAPI()
 
   const apiRoute = API.routes.banners
 
-  const getBannersData: QueryFunction<BannerType[]> = async () => {
-    const { data } = await request<BannerType[], never, never>(
-      'get',
-      apiRoute.list,
-    )
+  const getBannersData: QueryFunction<Banner[]> = async () => {
+    const { data } = await request<Banner[], never, never>('get', apiRoute.list)
 
     return data
   }
