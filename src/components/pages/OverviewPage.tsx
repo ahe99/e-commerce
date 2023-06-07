@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react'
 import { useRouter } from 'next/navigation'
 
-import { Product, ImageType } from '@/utils/ProductData'
+import { Product } from '@/utils/ProductData'
+import { Banner } from '@/utils/BannerData'
 
 import { BannerImage } from '@/components/atoms'
 import { Carousel, ProductsBoard } from '@/components/templates'
@@ -9,7 +10,7 @@ import { useProducts, useBanners } from '@/hooks'
 
 interface OverviewPageProps {
   prefetchProducts?: Product[]
-  prefetchBanners?: ImageType[]
+  prefetchBanners?: Banner[]
 }
 
 export const OverviewPage = ({
@@ -40,10 +41,9 @@ export const OverviewPage = ({
         autoPlay
         allowPan
       >
-        {bannersData.map((image, index) => (
+        {bannersData.map(({ image }, index) => (
           <BannerImage
             src={image.src}
-            blurHash={image.blurHash}
             alt={image.src}
             key={index}
             className="h-full w-full"

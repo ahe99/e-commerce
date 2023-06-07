@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['cdn.glitch.global'],
+    domains: ['parsefiles.back4app.com', 'cdn.glitch.global'],
   },
 }
 

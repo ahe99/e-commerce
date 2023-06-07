@@ -1,9 +1,4 @@
-// import {} from '@wayne0127/mall-api-types'
-
-export type ImageType = {
-  blurHash: string
-  src: string
-}
+import { ImageType } from './Image'
 
 export type Product = {
   id: string

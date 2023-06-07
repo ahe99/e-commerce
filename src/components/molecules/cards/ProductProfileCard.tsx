@@ -16,7 +16,7 @@ export const ProductProfileCard = ({
     category_name,
     description,
     price,
-    image: { src, blurHash },
+    image: { src },
   },
   className = '',
 }: ProductProfileCardProps) => {
@@ -24,12 +24,7 @@ export const ProductProfileCard = ({
     <div
       className={`${className} grid grid-flow-row grid-cols-5 gap-4 sm:grid-cols-4`}
     >
-      <ProductImage
-        className="col-span-2 sm:col-span-1"
-        src={src}
-        blurHash={blurHash}
-        alt={name}
-      />
+      <ProductImage className="col-span-2 sm:col-span-1" src={src} alt={name} />
 
       <div className="col-span-3 flex flex-col">
         <div className="flex flex-col">

@@ -23,7 +23,7 @@ export const CartProductItem = ({
     price,
     stock_quantity,
     quantity,
-    image: { src, blurHash },
+    image: { src },
   },
   onChangeQuantity = () => {},
   onClick = () => {},
@@ -31,12 +31,7 @@ export const CartProductItem = ({
   return (
     <div className="flex flex-col">
       <div className="grid grid-flow-row grid-cols-3 gap-4 rounded-md">
-        <ProductImage
-          className="col-span-1"
-          src={src}
-          blurHash={blurHash}
-          alt={name}
-        />
+        <ProductImage className="col-span-1" src={src} alt={name} />
 
         <div className="col-span-2 flex flex-col justify-between">
           <div
