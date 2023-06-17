@@ -6,12 +6,12 @@ import { Product } from '@/utils/ProductData'
 
 interface ProductCardProps {
   product: Product
-  onClick?: (productId: Product['id']) => void
+  onClick?: (productId: Product['objectId']) => void
 }
 
 export const ProductCard = ({
   product: {
-    id,
+    objectId,
     name = '',
     price,
     image: { src },
@@ -22,7 +22,7 @@ export const ProductCard = ({
     <motion.div
       className="relative flex flex-col gap-2 hover:cursor-pointer hover:opacity-40"
       whileTap={{ scale: 0.9 }}
-      onClick={() => onClick(id)}
+      onClick={() => onClick(objectId)}
     >
       <ProductImage src={src} alt={name} />
 

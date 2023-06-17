@@ -37,6 +37,14 @@ export const API = {
       update: (param: string | number) => `/foods/${param ?? ''}`,
       delete: (param: string | number) => `/foods/${param ?? ''}`,
     },
+    categories: {
+      list: '/categories',
+      data: (param: string | number) => `/categories/${param ?? ''}`,
+      create: '/categories',
+      update: (param: string | number) => `/categories/${param ?? ''}`,
+      delete: (param: string | number) => `/categories/${param ?? ''}`,
+    },
+
     recently: {
       list: '/recently',
       create: '/recently',

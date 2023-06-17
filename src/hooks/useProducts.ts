@@ -15,7 +15,7 @@ import { Product } from '@/utils/ProductData'
  * @description fill the type after the type is defined
  */
 
-export const useProducts = (initialData: Product[] = []) => {
+export const useProducts = (prefetchProducts: Product[]) => {
   const queryClient = useQueryClient()
 
   const { request } = useAPI()
@@ -33,7 +33,7 @@ export const useProducts = (initialData: Product[] = []) => {
   const productsDataQuery = useQuery({
     queryKey: ['products'],
     queryFn: getProductsData,
-    initialData,
+    initialData: prefetchProducts,
   })
 
   const putProductData: MutationFunction<

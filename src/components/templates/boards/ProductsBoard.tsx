@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import dayjs from 'dayjs'
 
 import {
@@ -9,9 +9,10 @@ import {
 } from '@/components/organisms'
 
 import { Product } from '@/utils/ProductData'
+import { Category } from '@/utils/Category'
 
 type ProductFilterType = {
-  category: string[]
+  category: Category[]
   text: string
 }
 
@@ -19,21 +20,19 @@ const PRODUCTS_PER_PAGE = 12
 
 interface ProductsBoardProps {
   products?: Product[]
+  categories?: Category[]
   productsPerPage?: number
-  onClickItem?: (productId: Product['id']) => void
+  onClickItem?: (productId: Product['objectId']) => void
 }
 
 export const ProductsBoard = ({
   products = [],
+  categories = [],
   productsPerPage = PRODUCTS_PER_PAGE,
   onClickItem = () => {},
 }: ProductsBoardProps) => {
-  const allCategories = [
-    ...new Set(products.map(({ category_name }) => category_name)),
-  ]
-
   const [filter, setFilter] = useState<ProductFilterType>({
-    category: allCategories,
+    category: categories,
     text: '',
   })
   const [currentPage, setCurrentPage] = useState(1)
@@ -44,7 +43,7 @@ export const ProductsBoard = ({
     setSortBase(newSortBase)
   }
 
-  const handleChangeCategory = (selectedCategory: string) => {
+  const handleChangeCategory = (selectedCategory: Category) => {
     resetPagination()
     setFilter((prev) => {
       const { text, category } = prev
@@ -65,11 +64,11 @@ export const ProductsBoard = ({
   const handleSelectAllCategory = () => {
     resetPagination()
     setFilter((prev) => {
-      const { text, category } = prev
-      if (category.length === allCategories.length) {
+      const { category } = prev
+      if (category.length === categories.length) {
         return { ...prev, category: [] }
       } else {
-        return { ...prev, category: allCategories }
+        return { ...prev, category: categories }
       }
     })
   }
@@ -92,8 +91,11 @@ export const ProductsBoard = ({
     window.scrollTo({ top: 0, left: 0 })
   }
 
-  const filteredProducts = products.filter((product) =>
-    filter.category.includes(product.category_name),
+  const filteredProducts = products.filter(
+    (product) =>
+      filter.category.findIndex(
+        ({ objectId }) => product.category_id === objectId,
+      ) !== -1,
   )
   const searchedProducts = filteredProducts.filter((product) => {
     if (filter.text) {
@@ -124,7 +126,7 @@ export const ProductsBoard = ({
     <div className="flex w-full flex-col items-center">
       <div className="flex w-full flex-col gap-2">
         <ProductFilter
-          categoryOptions={allCategories}
+          categoryOptions={categories}
           selectedOptions={filter.category}
           onChangeSearchText={handleChangeSearchText}
           onSelectCategory={handleChangeCategory}

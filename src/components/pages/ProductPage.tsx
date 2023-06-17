@@ -26,23 +26,23 @@ export const ProductPage = ({
   const router = useRouter()
 
   const cart = useCartProducts()
-  const recentlyViewedProducts = useRecentlyViewedProducts(
-    prefetchRecentlyProducts,
-  )
+  // const recentlyViewedProducts = useRecentlyViewedProducts(
+  //   prefetchRecentlyProducts,
+  // )
 
-  useEffect(() => {
-    if (prefetchProduct.id) {
-      recentlyViewedProducts.create.mutateAsync(prefetchProduct)
-    }
-  }, [prefetchProduct.id])
+  // useEffect(() => {
+  //   if (prefetchProduct.objectId) {
+  //     recentlyViewedProducts.create.mutateAsync(prefetchProduct)
+  //   }
+  // }, [prefetchProduct.id])
 
   const handleAddToCart = async () => {
     await cart.create.mutateAsync({ ...prefetchProduct, quantity })
   }
 
-  const handleClickProductCard = async (productId: Product['id']) => {
-    router.push(`products/${productId}`)
-  }
+  // const handleClickProductCard = async (productId: Product['objectId']) => {
+  //   router.push(`products/${productId}`)
+  // }
 
   return (
     <main className="page-container gap-4">
@@ -69,10 +69,10 @@ export const ProductPage = ({
       </div>
       <Divider />
       <div className="text-2xl">Recently viewed</div>
-      <ProductList
+      {/* <ProductList
         products={prefetchRecentlyProducts}
         onClickItem={handleClickProductCard}
-      />
+      /> */}
     </main>
   )
 }
