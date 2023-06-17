@@ -8,11 +8,11 @@ import { CartProductItem } from '@/components/molecules'
 interface CartProductListProps {
   cartProducts?: CartProduct[]
   onUpdateCartProductQuantity?: (
-    selectedProductId: CartProduct['id'],
+    selectedProductId: CartProduct['objectId'],
     newQuantity: number,
   ) => void
-  onDeleteCartProduct?: (selectedProductId: CartProduct['id']) => void
-  onClickitem?: (cartProductId: CartProduct['id']) => void
+  onDeleteCartProduct?: (selectedProductId: CartProduct['objectId']) => void
+  onClickitem?: (cartProductId: CartProduct['objectId']) => void
 }
 
 export const CartProductList = ({
@@ -22,7 +22,7 @@ export const CartProductList = ({
   onClickitem = () => {},
 }: CartProductListProps) => {
   const handleChangeCartProductQuantity = (
-    selectedProductId: CartProduct['id'],
+    selectedProductId: CartProduct['objectId'],
     newQuantity: number,
   ) => {
     if (newQuantity === 0) {
@@ -32,7 +32,9 @@ export const CartProductList = ({
     }
   }
 
-  const handleRemoveCartProduct = (selectedProductId: CartProduct['id']) => {
+  const handleRemoveCartProduct = (
+    selectedProductId: CartProduct['objectId'],
+  ) => {
     //to add: confirm modal
     onDeleteCartProduct(selectedProductId)
   }
@@ -40,7 +42,7 @@ export const CartProductList = ({
   return (
     <div className="flex flex-col">
       {cartProducts.map((cartProduct) => (
-        <Fragment key={cartProduct.id}>
+        <Fragment key={cartProduct.objectId}>
           <CartProductItem
             cartProduct={cartProduct}
             onChangeQuantity={handleChangeCartProductQuantity}

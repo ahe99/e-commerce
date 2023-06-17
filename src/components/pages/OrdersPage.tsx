@@ -16,7 +16,7 @@ export const OrdersPage = ({ prefetchOrders = [] }: OrdersPageProps) => {
 
   const ordersData = useMemo(() => orders.query.data ?? [], [orders.query.data])
 
-  const handleClickOrderItem = (orderId: Order['id']) => {
+  const handleClickOrderItem = (orderId: Order['objectId']) => {
     router.push(`orders/${orderId}`)
   }
 

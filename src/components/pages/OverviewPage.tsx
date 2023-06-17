@@ -30,7 +30,7 @@ export const OverviewPage = ({
     return banners.query.data ?? []
   }, [banners.query.data])
 
-  const handleClickProductCard = async (productId: Product['id']) => {
+  const handleClickProductCard = async (productId: Product['objectId']) => {
     router.push(`products/${productId}`)
   }
 

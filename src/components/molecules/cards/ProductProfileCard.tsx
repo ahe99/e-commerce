@@ -11,7 +11,7 @@ interface ProductProfileCardProps {
 //todo: find a better naming
 export const ProductProfileCard = ({
   product: {
-    id,
+    objectId,
     name,
     category_name,
     description,

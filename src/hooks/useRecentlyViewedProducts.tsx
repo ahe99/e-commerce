@@ -45,10 +45,10 @@ export const useRecentlyViewedProducts = (initialData: Product[] = []) => {
     // to improve
     if (
       recentlyViewedProductsDataQuery.data.findIndex(
-        ({ id }) => id === newViewedProduct.id,
+        ({ objectId }) => objectId === newViewedProduct.objectId,
       ) !== -1
     ) {
-      await deleteRecentlyViewedProduct(newViewedProduct.id)
+      await deleteRecentlyViewedProduct(newViewedProduct.objectId)
     }
 
     const { data } = await request<unknown, Product, never>(
@@ -73,8 +73,8 @@ export const useRecentlyViewedProducts = (initialData: Product[] = []) => {
 
   const deleteRecentlyViewedProduct: MutationFunction<
     unknown,
-    Product['id']
-  > = async (selectedViewedProductId: Product['id']) => {
+    Product['objectId']
+  > = async (selectedViewedProductId: Product['objectId']) => {
     const { data } = await request<unknown, never, never>(
       'delete',
       apiRoute.delete(selectedViewedProductId),

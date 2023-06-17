@@ -7,16 +7,16 @@ import { QuantitySelector } from '../interactive/QuantitySelector'
 interface CartProductItemProps {
   cartProduct: CartProduct
   onChangeQuantity?: (
-    cartProductId: CartProduct['id'],
+    cartProductId: CartProduct['objectId'],
     newQuantity: number,
   ) => void
-  onClick?: (cartProductId: CartProduct['id']) => void
+  onClick?: (cartProductId: CartProduct['objectId']) => void
 }
 
 //todo: find a better naming
 export const CartProductItem = ({
   cartProduct: {
-    id,
+    objectId,
     name,
     category_name,
     description,
@@ -36,7 +36,7 @@ export const CartProductItem = ({
         <div className="col-span-2 flex flex-col justify-between">
           <div
             className="flex flex-col hover:cursor-pointer hover:opacity-40"
-            onClick={() => onClick(id)}
+            onClick={() => onClick(objectId)}
           >
             <div className="text-xl font-bold">{name}</div>
             <div className="italic text-gray-400">{category_name}</div>
@@ -48,7 +48,9 @@ export const CartProductItem = ({
               value={quantity}
               minValue={0}
               maxValue={stock_quantity}
-              onChange={(newQuantity) => onChangeQuantity(id, newQuantity)}
+              onChange={(newQuantity) =>
+                onChangeQuantity(objectId, newQuantity)
+              }
             />
           </div>
         </div>

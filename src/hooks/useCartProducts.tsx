@@ -44,7 +44,7 @@ export const useCartProducts = (initialData: CartProduct[] = []) => {
     // to improve
     if (
       cartProductsDataQuery.data.findIndex(
-        ({ id }) => id === newCartProduct.id,
+        ({ objectId }) => objectId === newCartProduct.objectId,
       ) !== -1
     ) {
       await updateCartProduct(newCartProduct)
@@ -75,7 +75,7 @@ export const useCartProducts = (initialData: CartProduct[] = []) => {
   ) => {
     const { data } = await request<unknown, CartProduct, never>(
       'put',
-      apiRoute.update(selectedCartProduct.id),
+      apiRoute.update(selectedCartProduct.objectId),
       { data: selectedCartProduct },
     )
 
@@ -95,8 +95,8 @@ export const useCartProducts = (initialData: CartProduct[] = []) => {
 
   const deleteCartProduct: MutationFunction<
     unknown,
-    CartProduct['id']
-  > = async (selectedProductId: CartProduct['id']) => {
+    CartProduct['objectId']
+  > = async (selectedProductId: CartProduct['objectId']) => {
     const { data } = await request<unknown, never, never>(
       'delete',
       apiRoute.delete(selectedProductId),

@@ -6,7 +6,7 @@ import { Order } from '@/utils/ProductData'
 
 interface OrderListProps {
   orders: Order[]
-  onClickItem?: (productId: Order['id']) => void
+  onClickItem?: (productId: Order['objectId']) => void
 }
 export const OrderList = ({
   orders,
@@ -24,7 +24,7 @@ export const OrderList = ({
       className="flex flex-col gap-4"
     >
       {orders.map((order) => (
-        <OrderItem key={order.id} order={order} onClick={onClickItem} />
+        <OrderItem key={order.objectId} order={order} onClick={onClickItem} />
       ))}
     </motion.div>
   )

@@ -22,15 +22,17 @@ export const CartProductPage = ({
     () => cartProducts.query.data ?? [],
     [cartProducts.query.data],
   )
-  const handleDeleteCartProduct = async (cartProductId: CartProduct['id']) => {
+  const handleDeleteCartProduct = async (
+    cartProductId: CartProduct['objectId'],
+  ) => {
     await cartProducts.delete.mutateAsync(cartProductId)
   }
   const handleUpdateCartProductQuantity = async (
-    selectedProductId: CartProduct['id'],
+    selectedProductId: CartProduct['objectId'],
     newQuantity: number,
   ) => {
     const selectedCartProduct = cartProductsData.find(
-      ({ id }) => id === selectedProductId,
+      ({ objectId }) => objectId === selectedProductId,
     )
 
     if (selectedCartProduct) {
@@ -42,7 +44,7 @@ export const CartProductPage = ({
   }
 
   const handleClickCartProductItem = async (
-    cartProductId: CartProduct['id'],
+    cartProductId: CartProduct['objectId'],
   ) => {
     router.push(`products/${cartProductId}`)
   }
